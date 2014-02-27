@@ -22,7 +22,7 @@ class Filter extends Module {
 
 	public function install()
 	{
-		if(parent::install() == false )
+		if(parent::install() == false OR !$this->registerHook( 'displayHome') OR !$this->registerHook('displayfilter'))
 	    	return false;
 	    return true;
 	}
@@ -34,17 +34,23 @@ class Filter extends Module {
   		parent::uninstall();
 	}
 
-
-	public function hookFilterHome()
+	public function hookDisplayHome()
 	{
 		global $smarty;
-		return $this->display->('__FILE__', 'filter_home.tpl');
+
+		$sql = "SELECT DISTINCT name, ps_category.id_category 
+				FROM ps_category, ps_category_lang 
+				WHERE  ps_category_lang.id_category = ps_category.id_category";
+		$result = DB::getInstance()->ExecuteS($sql);
+
+		$smarty->assign('categories', $result);
+		return $this->display(__FILE__, 'filter_home.tpl');
 	}
 
-	public function hookFilterInternal()
+	public function hookDisplayFilter()
 	{
 		global $smarty;
-		return $this->display->('__FILE__', 'filter_internal.tpl');
+		return $this->display(__FILE__, 'filter.tpl');
 	}
 }
 
