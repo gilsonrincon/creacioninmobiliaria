@@ -38,11 +38,20 @@ class Filter extends Module {
 	{
 		global $smarty;
 
+		/*Seleccion de las categorias*/
 		$sql = "SELECT DISTINCT name, ps_category.id_category 
 				FROM ps_category, ps_category_lang 
-				WHERE  ps_category_lang.id_category = ps_category.id_category";
+				WHERE  ps_category_lang.id_category = ps_category.id_category 
+				and (ps_category.id_category = 5 or ps_category.id_category = 4) and id_lang = 1";
 		$result = DB::getInstance()->ExecuteS($sql);
 
+		/*Selección del sector*/
+		$sql = "SELECT DISTINCT name, ps_category.id_category 
+				FROM ps_category, ps_category_lang 
+				WHERE  ps_category_lang.id_category = ps_category.id_category and ps_category.id_category >= 6";
+		$sector  = DB::getInstance()->ExecuteS($sql);
+
+		$smarty->assign('sector', $sector);
 		$smarty->assign('categories', $result);
 		return $this->display(__FILE__, 'filter_home.tpl');
 	}

@@ -17,28 +17,28 @@ lo que se haya hecho en el frontend.
 		<select name="type" id="propertyType">
 			<option>Tipo de inmueble:</option>
 			{foreach from=$categories item=c}
-				<option value={$c.id}>{$c.name}</option>
+				<option value={$c.id_category}>{$c.name}</option>
 			{/foreach}
 		</select>
 
 		<select name="sector">
 			<option>Sector:</option>
-			{foreach from=$categories item=c}
-				<option value={$c.id}>{$c.name}</option>
+			{foreach from=$sector item=c}
+				<option value={$c.id_category}>{$c.name}</option>
 			{/foreach}
 		</select>
 
 		<select name="area">
 			<option>Area:</option>
 			{foreach from=$categories item=c}
-				<option value={$c.id}>{$c.name}</option>
+				<option value={$c.id_category}>{$c.name}</option>
 			{/foreach}
 		</select>
 
 		<select name="new">
 			<option>Nuevo:</option>
 			{foreach from=$categories item=c}
-				<option value={$c.id}>{$c.name}</option>
+				<option value={$c.id_category}>{$c.name}</option>
 			{/foreach}
 		</select>
 

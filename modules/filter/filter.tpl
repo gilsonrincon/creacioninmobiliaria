@@ -23,7 +23,7 @@ lo que se haya hecho en el frontend.
 
 		<select name="sector">
 			<option>Sector:</option>
-			{foreach from=$categories item=c}
+			{foreach from=$sector item=c}
 				<option value={$c.id}>{$c.name}</option>
 			{/foreach}
 		</select>
