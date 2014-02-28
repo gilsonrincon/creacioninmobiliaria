@@ -22,7 +22,7 @@ class Filter extends Module {
 
 	public function install()
 	{
-		if(parent::install() == false OR !$this->registerHook( 'displayHome') OR !$this->registerHook('displayfilter'))
+		if(parent::install() == false OR !$this->registerHook('filterHome') OR !$this->registerHook('filterInternal'))
 	    	return false;
 	    return true;
 	}
@@ -34,7 +34,7 @@ class Filter extends Module {
   		parent::uninstall();
 	}
 
-	public function hookDisplayHome()
+	public function hookFilterHome()
 	{
 		global $smarty;
 
@@ -47,7 +47,7 @@ class Filter extends Module {
 		return $this->display(__FILE__, 'filter_home.tpl');
 	}
 
-	public function hookDisplayFilter()
+	public function hookFilterInternal()
 	{
 		global $smarty;
 		return $this->display(__FILE__, 'filter.tpl');
