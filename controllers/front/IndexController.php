@@ -35,11 +35,15 @@ class IndexControllerCore extends FrontController
 	public function initContent()
 	{
 		parent::initContent();
-
+		include_once("../../modules/homeslider/Mobile_Detect.php");
 		$this->context->smarty->assign('HOOK_HOME', Hook::exec('displayHome'));
 		$this->context->smarty->assign('HOOK_FILTER', Hook::exec('filterHome'));
 		$this->context->smarty->assign('HOOK_WELCOME', Hook::exec('welcome'));
-		$this->context->smarty->assign('HOOK_SLIDER', Hook::exec('slider'));
+
+		$detect = new Mobile_Detect();
+		if(!$detect->isMobile()):
+			$this->context->smarty->assign('HOOK_SLIDER', Hook::exec('slider'));
+		endif;
 		$this->setTemplate(_PS_THEME_DIR_.'index.tpl');
 	}
 }
