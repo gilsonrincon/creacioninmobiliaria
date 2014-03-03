@@ -31,7 +31,9 @@
 {foreach from=$homeslider_slides item=slide}
 	{if $slide.active}
 		<li>
-			<span style="background-image: url('{$link->getMediaLink("`$module_dir`images/`$slide.image|escape:'htmlall':'UTF-8'`")}')">&nbsp;</span>
+			<a href="{$slide.url|escape:'htmlall':'UTF-8'}" title="{$slide.description|escape:'htmlall':'UTF-8'}">
+				<span style="background-image: url('{$link->getMediaLink("`$module_dir`images/`$slide.image|escape:'htmlall':'UTF-8'`")}')">&nbsp;</span>
+			</a>
 		</li>
 	{/if}
 {/foreach}
