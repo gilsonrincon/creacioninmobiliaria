@@ -90,10 +90,10 @@
 				</div>	
 			</header>	
 			<div id="follow">
-				<span style="display:inline-block;">SIGUENOS :</span>
-				<img src="img/creacion/facebook.png" alt="Creacion Inmobiliaria en facebook" />
-				<img src="img/creacion/twitter.png" alt="Creacion Inmobiliaria en twitter" />
-				<img src="img/creacion/google.png" alt="Creacion Inmobiliaria en google plus" />
+				<span>SIGUENOS :</span>
+				<a href="#"><img src="img/creacion/facebook.png" alt="Creacion Inmobiliaria en facebook" /></a>
+				<a href="#"><img src="img/creacion/twitter.png" alt="Creacion Inmobiliaria en twitter" /></a>
+				<a href="#"><img src="img/creacion/google.png" alt="Creacion Inmobiliaria en google plus" /></a>
 			</div>
 			
 				<!-- Center -->

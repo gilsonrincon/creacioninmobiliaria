@@ -12,40 +12,48 @@ corresponde y si es necesario algun otro ajusto lo hare cuidado de no dañar
 lo que se haya hecho en el frontend.
 
 **}
-<div class="filter">
-	<form action="" method="get">
-		<select name="type" id="propertyType">
-			<option>Tipo de inmueble:</option>
-			{foreach from=$categories item=c}
-				<option value={$c.id_category}>{$c.name}</option>
-			{/foreach}
-		</select>
-
-		<select name="sector">
-			<option>Sector:</option>
-			{foreach from=$sector item=c}
-				<option value={$c.id_category}>{$c.name}</option>
-			{/foreach}
-		</select>
-
-		<select name="area">
-			<option>Area:</option>
-			{foreach from=$categories item=c}
-				<option value={$c.id_category}>{$c.name}</option>
-			{/foreach}
-		</select>
-
-		<select name="new">
-			<option>Nuevo:</option>
-			{foreach from=$categories item=c}
-				<option value={$c.id_category}>{$c.name}</option>
-			{/foreach}
-		</select>
-
-		<select name="price_range">
-			<option value="Rango de precios">Rango de precios</option>
-		</select>
-
-		<input type="submit" value="Buscar">
-	</form>
+<div id="container-filterhome">
+	
+	<div class="filter_home">
+		<h3>REALIZA TU BUSQUEDA</h3>
+		<form class="form-filtre" action="" method="get">
+			<select name="type" id="propertyType">
+				
+				<option>TIPO DE INMUEBLE:</option>
+				{foreach from=$categories item=c}
+					<option value={$c.id_category}>{$c.name}</option>
+				{/foreach}
+			</select>
+	
+			<select name="sector">
+				<span></span>
+				<option>SECTOR:</option>
+				{foreach from=$sector item=c}
+					<option value={$c.id_category}>{$c.name}</option>
+				{/foreach}
+			</select>
+	
+			<select name="area">
+				<option>AREA:</option>
+				{foreach from=$categories item=c}
+					<option value={$c.id_category}>{$c.name}</option>
+				{/foreach}
+			</select>
+	
+			<select class="new-select" name="new">
+				<option>NUEVO:</option>
+				{foreach from=$categories item=c}
+					<option value={$c.id_category}>{$c.name}</option>
+				{/foreach}
+			</select>
+	
+			<select class="price-select" name="price_range">
+				<option value="Rango de precios">RANGO DE PRECIOS</option>
+			</select>
+	
+			<button class="search-filtre" type="submit"  value="Buscar">BUSCAR </button>
+			
+		</form>
+	</div>
 </div>
+
