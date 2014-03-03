@@ -1,8 +1,10 @@
 /* block top search */
+
 #search_block_top {
 	position:absolute;
-	right: 26%;
-    top: 34px;
+	/*right: 26%;*/
+	right:0px;
+   /* top: 34px; */
 }
 #search_block_top p {padding:0;}
 #search_block_top #search_query_top {

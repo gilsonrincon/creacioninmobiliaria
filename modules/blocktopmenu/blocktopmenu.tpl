@@ -1,8 +1,8 @@
 {if $MENU != ''}
 	
 	<!-- Menu -->
-	<div class="sf-contener clearfix">
-		<ul class="sf-menu clearfix">
+	<nav>
+		<ul>
 			{$MENU}
 			{if $MENU_SEARCH}
 				<li class="sf-search noBack" style="float:right">
@@ -17,8 +17,9 @@
 				</li>
 			{/if}
 		</ul>
-	</div>
+	</nav>
+	<!--
 	<div class="sf-right">&nbsp;</div>
-
+   -->
 	<!--/ Menu -->
 {/if}
