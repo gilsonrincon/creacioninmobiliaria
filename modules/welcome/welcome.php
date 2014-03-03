@@ -38,6 +38,8 @@ class Welcome extends Module {
 	{
 		global $smarty;
 		$welcome = new CMS(6);
+		if(is_null($welcome->content[1]))
+			return;
 		$smarty->assign('welcome', $welcome->content[1]);
 		return $this->display(__FILE__, 'welcome.tpl');
 	}
