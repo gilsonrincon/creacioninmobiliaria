@@ -4,11 +4,11 @@
 	exit;
 
 
-class Welcome extends Module {
+class Outstanding extends Module {
 	public function __construct()
 	{
 		
-		$this->name = 'welcome';
+		$this->name = 'outstanding';
 	    $this->tab = 'front_office_features';
 	    $this->version = 1.0;
 	    $this->author = 'STUDIOWEB & MARKETING | Frontend: Estefany Vélez | Backend: Andrés Aguilar';
@@ -16,25 +16,27 @@ class Welcome extends Module {
 	 
 	    parent::__construct();
 	 
-	    $this->displayName = $this->l( 'Bienvenido' );
-	    $this->description = $this->l( 'Mensaje de bienvenida del home.' );
+	    $this->displayName = $this->l('Proyectos destacados');
+	    $this->description = $this->l('Modulo que muestra los proyectos destacados.');
 	}
 
 	public function install()
 	{
-		if(parent::install() == false OR !$this->registerHook( 'welcome'))
+		if(parent::install() == false OR !$this->registerHook('outstandingHome'))
 	    	return false;
 	    return true;
 	}
 
-	/*public function uninstall()
+	/*
+	public function uninstall()
 	{
 		if ( !parent::uninstall() )
-   			Db::getInstance()->Execute( 'DELETE FROM `' . _DB_PREFIX_ . 'welcome' );
+   			Db::getInstance()->Execute('DELETE FROM `' . _DB_PREFIX_ . 'outstanding');
   		parent::uninstall();
-	}*/
-
-	public function hookWelcome()
+	}
+	*/
+	
+	public function hookOutstandingHome()
 	{
 		global $smarty;
 		$welcome = new CMS(6);
