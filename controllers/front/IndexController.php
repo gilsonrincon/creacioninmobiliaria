@@ -40,6 +40,7 @@ class IndexControllerCore extends FrontController
 		$this->context->smarty->assign('HOOK_SLIDER', Hook::exec('slider'));
 		$this->context->smarty->assign('HOOK_WELCOME', Hook::exec('welcome'));
 		$this->context->smarty->assign('HOOK_OUTSTANDING', Hook::exec('outstandingHome'));
+		$this->context->smarty->assign('HOOK_LUXURY', Hook::exec('luxuryHome'));
 		$this->setTemplate(_PS_THEME_DIR_.'index.tpl');
 	}
 }

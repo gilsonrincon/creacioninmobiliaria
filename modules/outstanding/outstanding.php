@@ -53,6 +53,7 @@ class Outstanding extends Module {
 
 		//Ejecutamos la consulta y almacenamos en resultado en una variable y luego a una smarty
 		$outstanding  = DB::getInstance()->ExecuteS($sql); 
+
 		$smarty->assign('outstanding', $outstanding);
 		return $this->display(__FILE__, 'outstanding.tpl');
 	}
