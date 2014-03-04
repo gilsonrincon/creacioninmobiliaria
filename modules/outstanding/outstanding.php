@@ -39,11 +39,22 @@ class Outstanding extends Module {
 	public function hookOutstandingHome()
 	{
 		global $smarty;
-		$welcome = new CMS(6);
-		if(is_null($welcome->content[1]))
-			return;
-		$smarty->assign('welcome', $welcome->content[1]);
-		return $this->display(__FILE__, 'welcome.tpl');
+		
+		$sql = "SELECT DISTINCT(ps_product.id_product),
+				ps_product.id_category_default, 
+				ps_product_lang.name,
+				ps_product_lang.description_short,
+				ps_category_product.id_category
+				FROM ps_product, ps_product_lang, ps_category_product 
+				WHERE ps_product.id_product = ps_product_lang.id_product
+				AND ps_product.id_product = ps_category_product.id_product 
+				AND ps_product_lang.id_lang = 1 
+				AND ps_category_product.id_category = 11 ORDER BY RAND() LIMIT 2";
+
+		//Ejecutamos la consulta y almacenamos en resultado en una variable y luego a una smarty
+		$outstanding  = DB::getInstance()->ExecuteS($sql); 
+		$smarty->assign('outstanding', $outstanding);
+		return $this->display(__FILE__, 'outstanding.tpl');
 	}
 }
 
