@@ -5,17 +5,20 @@
 	/*right: 26%;*/
 	right:0px;
    /* top: 34px; */
+  	top: 25px;
+  	z-index: 25;
+  	display: none;
 }
 #search_block_top p {padding:0;}
 #search_block_top #search_query_top {
-	padding:0 5px;
-	height:23px;
-	width:300px;/* 310 */
-	border:1px solid #666;
-	border-right: 0 !important;
-	color:#666;
-	background:url(img/bg_search_input.png) repeat-x 0 0 #fff;
-	float: left;
+    background: #FFFFFF;
+    border: 1px solid #5D5D5D;
+    color: #666666;
+    float: left;
+    height: 23px;
+    padding: 0 5px;
+    width: 190px;
+    border-radius: 5px !important;
 }
 
 #search_block_top .button {
@@ -23,7 +26,8 @@
 	border-radius:0;
 	color:#fff;
 	text-transform:uppercase;
-	background:url(img/bg_search_submit.png) repeat-x 0 0 #101010;
+	/*background:url(img/bg_search_submit.png) repeat-x 0 0 #101010;*/
+	background:#1e283f;
 	float: left;
 	height: 25px;
 }

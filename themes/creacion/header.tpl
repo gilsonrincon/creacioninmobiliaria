@@ -53,6 +53,15 @@
 			var priceDisplayMethod = {$priceDisplay};
 			var roundMode = {$roundMode};
 		</script>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.icon-searchc').click (function(){
+					$('#search_block_top').SlideToggle('slow');
+				});
+			});
+		</script>
+				
 {if isset($css_files)}
 	{foreach from=$css_files key=css_uri item=media}
 	<link href="{$css_uri}" rel="stylesheet" type="text/css" media="{$media}" />
@@ -87,9 +96,12 @@
 				<div id="navegation">
 					<div class="container-navegation">
 						{$HOOK_TOP}
+						<img class="icon-searchc" src="img/creacion/icon-search.png"  alt="buscar" title="Buscar"/>
 					</div>	
-				</div>	
-			</header>	
+				</div>
+				<div id="line-header"></div>	
+			</header>
+				
 			<div id="follow">
 				<span>SIGUENOS :</span>
 				<a href="#"><img src="img/creacion/facebook.png" alt="Creacion Inmobiliaria en facebook" /></a>
@@ -97,6 +109,7 @@
 				<a href="#"><img src="img/creacion/google.png" alt="Creacion Inmobiliaria en google plus" /></a>
 			</div>
 			
+		
 				<!-- Center -->
 				<div id="container-center">
 	{/if}
