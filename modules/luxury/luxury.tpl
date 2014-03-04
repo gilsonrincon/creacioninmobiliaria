@@ -4,7 +4,7 @@ Por ahora falta colocar la imagen
 **}
 
 <div>
-	{foreach from=$outstanding item=o}
+	{foreach from=$luxury item=o}
 		<div>
 			<img src="http://1.bp.blogspot.com/_nEZddcafnkk/S8m5kOGZDPI/AAAAAAAASzk/jOGgGZQsac0/s1600/casa-campestre-3.jpg">
 			{$o.name} {*Esta variable guarda el nombre de la propiedad*}
