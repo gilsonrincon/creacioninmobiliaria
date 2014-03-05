@@ -9,7 +9,7 @@ Por ahora falta colocar la imagen
 		{foreach from=$luxury item=o}
 			<div class="product-creacion">
 				<a href="http://creacioninmobiliaria.com/index.php?id_product={$o.id_product}&controller=product&id_lang=1">
-					<img src="http://1.bp.blogspot.com/_nEZddcafnkk/S8m5kOGZDPI/AAAAAAAASzk/jOGgGZQsac0/s1600/casa-campestre-3.jpg">
+					<img src="{$images[$o.id_product]}">
 					<div class="name-product">
 						{$o.name} {*Esta variable guarda el nombre de la propiedad*}
 					</div>	
