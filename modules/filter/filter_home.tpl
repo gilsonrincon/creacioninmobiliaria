@@ -32,8 +32,12 @@ lo que se haya hecho en el frontend.
 					<option value={$c.id_category}>{$c.name}</option>
 				{/foreach}
 			</select>
+				
+			<select name="price_range">
+				<option value="Rango de precios">RANGO DE PRECIOS</option>
+			</select>
 	
-			<select name="area">
+			<select class="price-select" name="area">
 				<option>AREA:</option>
 				{foreach from=$categories item=c}
 					<option value={$c.id_category}>{$c.name}</option>
@@ -47,9 +51,7 @@ lo que se haya hecho en el frontend.
 				{/foreach}
 			</select>
 	
-			<select class="price-select" name="price_range">
-				<option value="Rango de precios">RANGO DE PRECIOS</option>
-			</select>
+			
 	
 			<button class="search-filtre" type="submit"  value="Buscar">BUSCAR </button>
 			

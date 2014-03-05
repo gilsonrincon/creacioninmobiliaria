@@ -70,12 +70,21 @@
 	
 	<script type="text/javascript">
 			$(document).ready(function(){
+				
+				/***PARA EL BUSCADOR DEL HOME****/
 				$('.icon-searchc').click (function(){
 					$('#search_block_top').slideToggle('slow');
 				});
 				
-				$('.menu-mobile').click (function(){
-					$('#navegation').slideToggle('slow');
+				/*****MENU VERSION MOVIL******/
+				
+				$('.menu-movil').click (function(){
+					$('#navegation nav').slideToggle('slow');
+				});
+				
+				$('.search-movil').click (function(){
+					$('#navegation #search_block_top').slideToggle('slow');
+					/*$('#container-filterhome').slideToggle('slow');*/
 				});
 				
 			});
@@ -93,7 +102,10 @@
 			<!-- Header -->
 			<header>
 				<div id="container-header">
-					<img class="menu-movil" src="img/creacion/menu-mobile.png" alt="menu movil "/>	
+					<div class="btns-mobile">
+						<img class="menu-movil" src="img/creacion/menu-mobile.png" alt="menu movil "/>
+						<img class="search-movil" src="img/creacion/search-mobile.png" alt="Busqueda"/>	
+					</div>
 					<a id="header_logo" href="{$base_dir}" title="{$shop_name|escape:'htmlall':'UTF-8'}">
 						<!--
 						<img class="logo" src="{$logo_url}" alt="{$shop_name|escape:'htmlall':'UTF-8'}" {if $logo_image_width}width="{$logo_image_width}"{/if} {if $logo_image_height}height="{$logo_image_height}" {/if}/>
