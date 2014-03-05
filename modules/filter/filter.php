@@ -48,11 +48,24 @@ class Filter extends Module {
 		/*Selección del sector*/
 		$sql = "SELECT DISTINCT name, ps_category.id_category 
 				FROM ps_category, ps_category_lang 
-				WHERE  ps_category_lang.id_category = ps_category.id_category and ps_category.id_category >= 6 and ps_category.id_parent = 3";
+				WHERE  ps_category_lang.id_category = ps_category.id_category and ps_category.id_parent = 3 ORDER BY name";
 		$sector  = DB::getInstance()->ExecuteS($sql);
 
-		$product = new Product(2);
+		/*Selección del area*/
+		$sql = "SELECT DISTINCT name, ps_category.id_category 
+				FROM ps_category, ps_category_lang 
+				WHERE  ps_category_lang.id_category = ps_category.id_category and ps_category.id_parent = 20 ORDER BY name";
+		$area  = DB::getInstance()->ExecuteS($sql);
 
+
+		/*Selección del estado*/
+		$sql = "SELECT DISTINCT name, ps_category.id_category 
+				FROM ps_category, ps_category_lang 
+				WHERE  ps_category_lang.id_category = ps_category.id_category and ps_category.id_parent = 17 ORDER BY name";
+		$status  = DB::getInstance()->ExecuteS($sql);
+		
+		$smarty->assign('status', $status);
+		$smarty->assign('area', $area);
 		$smarty->assign('sector', $sector);
 		$smarty->assign('categories', $result);
 		return $this->display(__FILE__, 'filter_home.tpl');

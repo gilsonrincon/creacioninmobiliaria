@@ -16,7 +16,7 @@ lo que se haya hecho en el frontend.
 	
 	<div class="filter_home">
 		<h3>REALIZA TU BUSQUEDA</h3>
-		<form class="form-filtre" action="" method="get">
+		<form class="form-filtre" action="http://creacioninmobiliaria.com/index.php?controller=filter" method="post">
 			<select name="type" id="propertyType">
 				
 				<option>TIPO DE INMUEBLE:</option>
@@ -39,16 +39,16 @@ lo que se haya hecho en el frontend.
 	
 			<select class="price-select" name="area">
 				<option>AREA:</option>
-				{foreach from=$categories item=c}
+				{foreach from=$area item=c}
 					<option value={$c.id_category}>{$c.name}</option>
 				{/foreach}
 			</select>
 	
 			<select class="new-select" name="new">
-				<option>NUEVO:</option>
-				{foreach from=$categories item=c}
+				{foreach from=$status item=c}
 					<option value={$c.id_category}>{$c.name}</option>
 				{/foreach}
+				<option>Nuevos y usados</option>
 			</select>
 	
 			
