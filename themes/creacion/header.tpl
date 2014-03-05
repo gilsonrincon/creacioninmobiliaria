@@ -54,14 +54,7 @@
 			var roundMode = {$roundMode};
 		</script>
 		
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$('.icon-searchc').click (function(){
-					$('#search_block_top').SlideToggle('slow');
-				});
-			});
-		</script>
-				
+					
 {if isset($css_files)}
 	{foreach from=$css_files key=css_uri item=media}
 	<link href="{$css_uri}" rel="stylesheet" type="text/css" media="{$media}" />
@@ -75,6 +68,20 @@
 		{$HOOK_HEADER}
 	</head>
 	
+	<script type="text/javascript">
+			$(document).ready(function(){
+				$('.icon-searchc').click (function(){
+					$('#search_block_top').slideToggle('slow');
+				});
+				
+				$('.menu-mobile').click (function(){
+					$('#navegation').slideToggle('slow');
+				});
+				
+			});
+	</script>
+	
+	
 	<body {if isset($page_name)}id="{$page_name|escape:'htmlall':'UTF-8'}"{/if} class="{if isset($page_name)}{$page_name|escape:'htmlall':'UTF-8'}{/if}{if $hide_left_column} hide-left-column{/if}{if $hide_right_column} hide-right-column{/if}{if $content_only} content_only{/if}">
 	{if !$content_only}
 		{if isset($restricted_country_mode) && $restricted_country_mode}
@@ -85,14 +92,17 @@
 		<div id="container-page">
 			<!-- Header -->
 			<header>
-				<div id="container-header">	
+				<div id="container-header">
+					<img class="menu-movil" src="img/creacion/menu-mobile.png" alt="menu movil "/>	
 					<a id="header_logo" href="{$base_dir}" title="{$shop_name|escape:'htmlall':'UTF-8'}">
 						<!--
 						<img class="logo" src="{$logo_url}" alt="{$shop_name|escape:'htmlall':'UTF-8'}" {if $logo_image_width}width="{$logo_image_width}"{/if} {if $logo_image_height}height="{$logo_image_height}" {/if}/>
 						-->
 						<img class="logo" src="img/logo2.png" alt="Creacion Inmobiliaria"/>
 					</a>
-				</div>	
+						
+				</div>
+				
 				<div id="navegation">
 					<div class="container-navegation">
 						{$HOOK_TOP}
