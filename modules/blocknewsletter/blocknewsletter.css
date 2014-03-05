@@ -81,3 +81,21 @@
 
 /*******CREACION INMOBLILIARIA********/
 
+/*TABLET*/
+
+@media screen and (min-width:601px) and (max-width:900px){
+	#newsletter_block_left .title_block, #newsletter_block_left h4 {
+		    text-align: left;
+		    width: 20%;
+		  
+		}
+	#newsletter_block_left input.inputNew{
+		width: 50%;
+	}	
+	
+	
+	#newsletter_block_left .block_content {
+	    width: 70%;
+	}
+}
+
