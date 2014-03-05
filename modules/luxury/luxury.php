@@ -52,9 +52,19 @@ class Luxury extends Module {
 				AND ps_category_product.id_category = 11 ORDER BY RAND() LIMIT 2";
 
 		//Ejecutamos la consulta y almacenamos en resultado en una variable y luego a una smarty
-		$luxury  = DB::getInstance()->ExecuteS($sql); 
-
+		$luxury  = DB::getInstance()->ExecuteS($sql);
 		$smarty->assign('luxury', $luxury);
+
+		//obtiene la url de la imagen del producto y las guardamos en un array llamado images 
+		//y la pasamos a smarty
+		$images = array();
+		foreach ($luxury as $out):
+			$pi = Product::getCover($out['id_product']);
+			$pi = new Image($pi);
+			$images[$out['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath()."-large_default.jpg";;
+		endforeach;
+		$smarty->assign('images', $images); 
+
 		return $this->display(__FILE__, 'luxury.tpl');
 	}
 }

@@ -2436,7 +2436,15 @@ class ProductCore extends ObjectModel
 	*
 	* @return array Product cover image
 	*/
-	public static function getCover($id_product, Context $context = null)
+	static public function getCover($id_product){
+		  $sql='select i.id_image 
+		   from ps_image i 
+		   where i.id_product='.$id_product.' and i.cover=1';
+		  $id_image=Db::getInstance()->getValue($sql);
+
+		  return (int)$id_image;
+	}
+	/*public static function getCover($id_product, Context $context = null)
 	{
 		if (!$context)
 			$context = Context::getContext();
@@ -2452,7 +2460,7 @@ class ProductCore extends ObjectModel
 			Cache::store($cache_id, $result);
 		}
 		return Cache::retrieve($cache_id);
-	}
+	}*/
 
 	/**
 	* Get product price
