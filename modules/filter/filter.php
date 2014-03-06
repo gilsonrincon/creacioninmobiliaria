@@ -155,7 +155,7 @@ class Filter extends Module {
 
 			$pi = Product::getCover($p['id_product']);
 			$pi = new Image($pi);
-			$products_images[$p['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath().".jpg";;
+			$products_images[$p['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath()."-large_default.jpg";;
 		endforeach;
 		
 		global $smarty;
@@ -163,6 +163,7 @@ class Filter extends Module {
 		$smarty->assign('products_sector', $products_sector);
 		$smarty->assign('products_description', $products_description);
 		$smarty->assign('products_images', $products_images);
+		$smarty->assign('products_count', count($products));
 
 		return $this->display(__FILE__, 'filter_search.tpl');
 
