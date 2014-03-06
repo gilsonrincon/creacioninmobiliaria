@@ -35,16 +35,15 @@ class FilterControllerCore extends FrontController
 	public function initContent()
 	{
 		parent::initContent();
-
-
-		$this->context->smarty->assign('HOOK_HOME', Hook::exec('displayHome'));
-		$this->context->smarty->assign('HOOK_FILTER', Hook::exec('filterHome'));
-
 		/*
-		$this->context->smarty->assign('HOOK_WELCOME', Hook::exec('welcome'));
-		$this->context->smarty->assign('HOOK_OUTSTANDING', Hook::exec('outstandingHome'));
-		$this->context->smarty->assign('HOOK_LUXURY', Hook::exec('luxuryHome'));
+		$sql = "SELECT ps_product.id_product FROM ps_product 
+				INNER JOIN ps_category_product ON ps_category_product.id_product = ps_product.id_product 
+				INNER JOIN ps_category ON ps_category.id_category = ps_category_product.id_category
+				WHERE ps_category.id_category = $_POST[sector]";
+		$result = DB::getInstance()->ExecuteS($sql);
 		*/
-		//$this->setTemplate(_PS_THEME_DIR_.'index.tpl');
+
+		$this->context->smarty->assign('HOOK_FILTER', Hook::exec('filterSearch'));
+		$this->setTemplate(_PS_THEME_DIR_.'filter.tpl');
 	}
 }

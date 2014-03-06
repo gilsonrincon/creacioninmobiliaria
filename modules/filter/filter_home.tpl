@@ -19,15 +19,15 @@ lo que se haya hecho en el frontend.
 		<form class="form-filtre" action="http://creacioninmobiliaria.com/index.php?controller=filter" method="post">
 			<select name="type" id="propertyType">
 				
-				<option>TIPO DE INMUEBLE:</option>
-				{foreach from=$categories item=c}
+				<option value="0">TIPO DE INMUEBLE:</option>
+				{foreach from=$type item=c}
 					<option value={$c.id_category}>{$c.name}</option>
 				{/foreach}
 			</select>
 	
 			<select name="sector">
 				<span></span>
-				<option>SECTOR:</option>
+				<option value="0">SECTOR:</option>
 				{foreach from=$sector item=c}
 					<option value={$c.id_category}>{$c.name}</option>
 				{/foreach}
@@ -38,20 +38,18 @@ lo que se haya hecho en el frontend.
 			</select>
 	
 			<select class="price-select" name="area">
-				<option>AREA:</option>
+				<option value="0">AREA:</option>
 				{foreach from=$area item=c}
 					<option value={$c.id_category}>{$c.name}</option>
 				{/foreach}
 			</select>
 	
-			<select class="new-select" name="new">
+			<select class="new-select" name="status">
 				{foreach from=$status item=c}
 					<option value={$c.id_category}>{$c.name}</option>
 				{/foreach}
-				<option>Nuevos y usados</option>
+				<option value="0">Nuevos y usados</option>
 			</select>
-	
-			
 	
 			<button class="search-filtre" type="submit"  value="Buscar">BUSCAR </button>
 			

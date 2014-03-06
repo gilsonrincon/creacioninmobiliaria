@@ -66,30 +66,30 @@
 	{/foreach}
 {/if}
 		{$HOOK_HEADER}
+		
+		<script type="text/javascript">
+				$(document).ready(function(){
+					
+					/***PARA EL BUSCADOR DEL HOME****/
+					$('.icon-searchc').click (function(){
+						$('#search_block_top').slideToggle('slow');
+					});
+					
+					/*****MENU VERSION MOVIL******/
+					
+					$('.menu-movil').click (function(){
+						$('#navegation nav').slideToggle('slow');
+					});
+					
+					$('.search-movil').click (function(){
+						$('#navegation #search_block_top').slideToggle('slow');
+						/*$('#container-filterhome').slideToggle('slow');*/
+					});
+					
+				});
+		</script>	
+			
 	</head>
-	
-	<script type="text/javascript">
-			$(document).ready(function(){
-				
-				/***PARA EL BUSCADOR DEL HOME****/
-				$('.icon-searchc').click (function(){
-					$('#search_block_top').slideToggle('slow');
-				});
-				
-				/*****MENU VERSION MOVIL******/
-				
-				$('.menu-movil').click (function(){
-					$('#navegation nav').slideToggle('slow');
-				});
-				
-				$('.search-movil').click (function(){
-					$('#navegation #search_block_top').slideToggle('slow');
-					/*$('#container-filterhome').slideToggle('slow');*/
-				});
-				
-			});
-	</script>
-	
 	
 	<body {if isset($page_name)}id="{$page_name|escape:'htmlall':'UTF-8'}"{/if} class="{if isset($page_name)}{$page_name|escape:'htmlall':'UTF-8'}{/if}{if $hide_left_column} hide-left-column{/if}{if $hide_right_column} hide-right-column{/if}{if $content_only} content_only{/if}">
 	{if !$content_only}
