@@ -10,7 +10,7 @@ $p.price     = precio del producto
 $products_description[$p.id_product] = Descripcion del producto
 
 **}
-
+{$title}<br>
 Se encontraron {$products_count} resultados.<br>
 
 {foreach from=$products item=p}

@@ -13,39 +13,43 @@ lo que se haya hecho en el frontend.
 
 **}
 <div class="filter">
-	<form action="" method="get">
+	<form class="form-filtre" action="http://creacioninmobiliaria.com/index.php?controller=filter" method="post">
 		<select name="type" id="propertyType">
-			<option>Tipo de inmueble:</option>
-			{foreach from=$categories item=c}
-				<option value={$c.id}>{$c.name}</option>
+			
+			<option value="0">TIPO DE INMUEBLE:</option>
+			{foreach from=$type item=c}
+				<option value={$c.id_category}>{$c.name}</option>
 			{/foreach}
 		</select>
 
 		<select name="sector">
-			<option>Sector:</option>
+			<span></span>
+			<option value="0">SECTOR:</option>
 			{foreach from=$sector item=c}
-				<option value={$c.id}>{$c.name}</option>
+				<option value={$c.id_category}>{$c.name}</option>
 			{/foreach}
 		</select>
-
-		<select name="area">
-			<option>Area:</option>
-			{foreach from=$categories item=c}
-				<option value={$c.id}>{$c.name}</option>
-			{/foreach}
-		</select>
-
-		<select name="new">
-			<option>Nuevo:</option>
-			{foreach from=$categories item=c}
-				<option value={$c.id}>{$c.name}</option>
-			{/foreach}
-		</select>
-
+			
 		<select name="price_range">
-			<option value="Rango de precios">Rango de precios</option>
+			<option value="Rango de precios">RANGO DE PRECIOS</option>
 		</select>
 
-		<input type="submit" value="Buscar">
+		<select class="price-select" name="area">
+			<option value="0">AREA:</option>
+			{foreach from=$area item=c}
+				<option value={$c.id_category}>{$c.name}</option>
+			{/foreach}
+		</select>
+
+		<select class="new-select" name="status">
+			{foreach from=$status item=c}
+				<option value={$c.id_category}>{$c.name}</option>
+			{/foreach}
+			<option value="0">Nuevos y usados</option>
+		</select>
+		<input type="hidden" name="maincategory" value="{$category}">
+
+		<button class="search-filtre" type="submit"  value="Buscar">BUSCAR </button>
+		
 	</form>
 </div>
