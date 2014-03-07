@@ -160,3 +160,23 @@
 		</form>
 	</div>	
 {/if}
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<div id="mapa" style="width: 500px; height: 500px"></div>
+<script>
+	var mapa = new google.maps.LatLng(37.38264, -5.996295);	//Coordenadas
+	var opciones = {
+	    zoom : 13,
+	    center: mapa,
+	    mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	var div = document.getElementById('mapa');
+	var map = new google.maps.Map(div, opciones);
+
+	// Creamos un marcador y lo posicionamos en el mapa
+	var marcador = new google.maps.Marker({
+	  position: new google.maps.LatLng(37.38264, -5.996295), //Coordenadas
+	  map: map,
+	  icon: "http://creacioninmobiliaria.com/img/maps.png"
+	});
+</script>
