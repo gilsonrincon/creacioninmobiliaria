@@ -125,6 +125,7 @@ class Filter extends Module {
 
 	public function hookFilterSearch()
 	{
+		global $smarty;
 		//Recuperamos los filtros que se van a aplicar y los colocamos en un array
 		$filters = Array();
 
@@ -170,6 +171,42 @@ class Filter extends Module {
 				endif;
 			endforeach;
 		endforeach;
+		$smarty->assign('products_count', count($products));
+		//Organizamos la paginación
+		$pagination = array();
+
+		if(count($products) > 8):
+			$m = count($products) / 8;
+			if(is_float($m))
+				$m = $m + 1;
+			for($i=1; $i < $m  ; $i++):
+				array_push($pagination, array($i, "http://creacioninmobiliaria.com/index.php?controller=filter&type=".Tools::getValue('type')."&sector=".Tools::getValue('sector')."&price_range=".Tools::getValue('price_range')."&area=".Tools::getValue('area')."&status=".Tools::getValue('status')."&page=".$i));
+				//echo "http://creacioninmobiliaria.com/index.php?controller=category?category=5&page=".$i;
+			endfor;
+		endif;
+		$smarty->assign('pagination', $pagination);
+
+		//Filtramos la páginacion
+		$page = Tools::getValue('page');
+		if(!is_null($page) && $page != ""):
+			$rep = 0;
+			$min = 8 * ($page - 1);
+			$max = 8 * $page;
+			foreach($products as $key => $value):
+				$rep = $rep + 1;
+				if($rep > $max || $rep < ($min + 1)):
+					unset($products[$key]);
+				endif;
+			endforeach;
+		else:
+			$rep = 0;
+			foreach($products as $key => $value):
+				$rep = $rep + 1;
+				if($rep > 8):
+					unset($products[$key]);
+				endif;
+			endforeach;
+		endif;
 		
 		$products_description = array();
 		$products_sector = array();
@@ -197,12 +234,10 @@ class Filter extends Module {
 			$products_images[$p['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath()."-large_default.jpg";;
 		endforeach;
 		
-		global $smarty;
 		$smarty->assign('products', $products);
 		$smarty->assign('products_sector', $products_sector);
 		$smarty->assign('products_description', $products_description);
 		$smarty->assign('products_images', $products_images);
-		$smarty->assign('products_count', count($products));
 		$smarty->assign('title', 'Resultados de busqueda');
 
 		return $this->display(__FILE__, 'filter_search.tpl');
@@ -211,6 +246,7 @@ class Filter extends Module {
 
 	public function hookFilterCategorySearch()
 	{
+		global $smarty;
 		//Recuperamos los filtros que se van a aplicar y los colocamos en un array
 		$filters = Array();
 
@@ -269,13 +305,51 @@ class Filter extends Module {
 			$pi = new Image($pi);
 			$products_images[$p['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath()."-large_default.jpg";;
 		endforeach;
+
+		$smarty->assign('products_count', count($products));
 		
-		global $smarty;
+
+
+		//Organizamos la paginación
+		$pagination = array();
+
+		if(count($products) > 8):
+			$m = count($products) / 8;
+			if(is_float($m))
+				$m = $m + 1;
+			for($i=1; $i < $m  ; $i++):
+				array_push($pagination, array($i, "http://creacioninmobiliaria.com/index.php?controller=category?category=".Tools::getValue('category')."&page=".$i));
+				//echo "http://creacioninmobiliaria.com/index.php?controller=category?category=5&page=".$i;
+			endfor;
+		endif;
+		$smarty->assign('pagination', $pagination);
+
+		//Filtramos la páginacion
+		$page = Tools::getValue('page');
+		if(!is_null($page) && $page != ""):
+			$rep = 0;
+			$min = 8 * ($page - 1);
+			$max = 8 * $page;
+			foreach($products as $key => $value):
+				$rep = $rep + 1;
+				if($rep > $max || $rep < ($min + 1)):
+					unset($products[$key]);
+				endif;
+			endforeach;
+		else:
+			$rep = 0;
+			foreach($products as $key => $value):
+				$rep = $rep + 1;
+				if($rep > 8):
+					unset($products[$key]);
+				endif;
+			endforeach;
+		endif;
+
 		$smarty->assign('products', $products);
 		$smarty->assign('products_sector', $products_sector);
 		$smarty->assign('products_description', $products_description);
 		$smarty->assign('products_images', $products_images);
-		$smarty->assign('products_count', count($products));
 
 		$sql = "SELECT name FROM ps_category_lang WHERE id_category = ".Tools::getValue('category')." AND id_lang = 1";
 		$title = DB::getInstance()->ExecuteS($sql);
