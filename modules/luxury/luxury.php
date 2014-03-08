@@ -16,7 +16,7 @@ class Luxury extends Module {
 	 
 	    parent::__construct();
 	 
-	    $this->displayName = $this->l('Propiedades de lojo');
+	    $this->displayName = $this->l('Propiedades de lujo');
 	    $this->description = $this->l('Modulo que muestra las propiedades de lojo.');
 	}
 
