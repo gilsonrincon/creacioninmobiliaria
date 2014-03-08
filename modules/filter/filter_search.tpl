@@ -35,7 +35,7 @@ $products_description[$p.id_product] = Descripcion del producto
 		{/foreach}
 	</ul>
 
-	<ul>
+	<ul class="pagination-general">
 		{foreach from=$pagination item=p}
 			<li><a href="{$p[1]}">{$p[0]}</a></li>
 		{/foreach}
