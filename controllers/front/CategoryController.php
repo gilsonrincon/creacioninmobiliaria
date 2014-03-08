@@ -32,7 +32,13 @@ class CategoryControllerCore extends FrontController
 	public function initContent()
 	{
 		parent::initContent();
+		if(Tools::getValue('category') != 4 && Tools::getValue('category') != 5)
+			header('Location: /');
 
+		$banner = "http://creacioninmobiliaria.com/img/c/".Tools::getValue('category').".jpg";
+
+		$this->context->smarty->assign('banner', $banner);
+		$this->context->smarty->assign('HOOK_FILTER', Hook::exec('filterInternal'));
 		$this->context->smarty->assign('HOOK_FILTER', Hook::exec('filterInternal'));
 		$this->context->smarty->assign('HOOK_FILTER_SEARCH', Hook::exec('filterCategorySearch'));
 		$this->setTemplate(_PS_THEME_DIR_.'category.tpl');
