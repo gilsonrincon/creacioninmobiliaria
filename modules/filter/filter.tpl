@@ -12,8 +12,10 @@ corresponde y si es necesario algun otro ajusto lo hare cuidado de no dañar
 lo que se haya hecho en el frontend.
 
 **}
-<div class="filter">
-	<form class="form-filtre" action="http://creacioninmobiliaria.com/index.php?controller=filter" method="post">
+<div id="filter">
+	
+	<form class="form-category-filtre" action="http://creacioninmobiliaria.com/index.php?controller=filter" method="post">
+		<h3>REALIZA TU BUSQUEDA</h3>
 		<select name="type" id="propertyType">
 			
 			<option value="0">TIPO DE INMUEBLE:</option>
