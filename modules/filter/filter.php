@@ -125,6 +125,7 @@ class Filter extends Module {
 
 	public function hookFilterSearch()
 	{
+		global $smarty;
 		//Recuperamos los filtros que se van a aplicar y los colocamos en un array
 		$filters = Array();
 
@@ -170,10 +171,47 @@ class Filter extends Module {
 				endif;
 			endforeach;
 		endforeach;
+		$smarty->assign('products_count', count($products));
+		//Organizamos la paginación
+		$pagination = array();
+
+		if(count($products) > 8):
+			$m = count($products) / 8;
+			if(is_float($m))
+				$m = $m + 1;
+			for($i=1; $i < $m  ; $i++):
+				array_push($pagination, array($i, "http://creacioninmobiliaria.com/index.php?controller=filter&type=".Tools::getValue('type')."&sector=".Tools::getValue('sector')."&price_range=".Tools::getValue('price_range')."&area=".Tools::getValue('area')."&status=".Tools::getValue('status')."&page=".$i));
+				//echo "http://creacioninmobiliaria.com/index.php?controller=category?category=5&page=".$i;
+			endfor;
+		endif;
+		$smarty->assign('pagination', $pagination);
+
+		//Filtramos la páginacion
+		$page = Tools::getValue('page');
+		if(!is_null($page) && $page != ""):
+			$rep = 0;
+			$min = 8 * ($page - 1);
+			$max = 8 * $page;
+			foreach($products as $key => $value):
+				$rep = $rep + 1;
+				if($rep > $max || $rep < ($min + 1)):
+					unset($products[$key]);
+				endif;
+			endforeach;
+		else:
+			$rep = 0;
+			foreach($products as $key => $value):
+				$rep = $rep + 1;
+				if($rep > 8):
+					unset($products[$key]);
+				endif;
+			endforeach;
+		endif;
 		
 		$products_description = array();
 		$products_sector = array();
 		$products_images = array();
+		$products_areas = array();
 
 		foreach ($products as $p):
 			/*Obtenemos la descripcion corta*/
@@ -192,17 +230,33 @@ class Filter extends Module {
 				$products_sector[$p['id_product']] = $s['name'];
 			endforeach;
 
+			/*Obtnemeos el area*/
+			$sql = "SELECT ps_feature_value_lang.value FROM ps_feature_product
+					INNER JOIN ps_feature_value ON ps_feature_product.id_feature_value = ps_feature_value.id_feature_value
+					INNER JOIN ps_feature_value_lang ON ps_feature_value_lang.id_feature_value = ps_feature_value.id_feature_value
+					INNER JOIN ps_feature ON ps_feature_value.id_feature = ps_feature.id_feature
+					INNER JOIN ps_feature_lang ON ps_feature.id_feature = ps_feature_lang.id_feature
+					WHERE ps_feature_lang.id_lang = 1 
+					AND ps_feature_value_lang.id_lang = 1 
+					AND ps_feature.id_feature = 7 
+					AND ps_feature_product.id_product = ".$p['id_product'];
+			$result = DB::getInstance()->ExecuteS($sql);
+			
+			$products_areas[$p['id_product']] = "";
+			foreach($result as $a):
+				$products_areas[$p['id_product']] = $a['value'];
+			endforeach;
+
 			$pi = Product::getCover($p['id_product']);
 			$pi = new Image($pi);
 			$products_images[$p['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath()."-large_default.jpg";;
 		endforeach;
 		
-		global $smarty;
 		$smarty->assign('products', $products);
 		$smarty->assign('products_sector', $products_sector);
+		$smarty->assign('products_areas', $products_areas);
 		$smarty->assign('products_description', $products_description);
 		$smarty->assign('products_images', $products_images);
-		$smarty->assign('products_count', count($products));
 		$smarty->assign('title', 'Resultados de busqueda');
 
 		return $this->display(__FILE__, 'filter_search.tpl');
@@ -211,6 +265,7 @@ class Filter extends Module {
 
 	public function hookFilterCategorySearch()
 	{
+		global $smarty;
 		//Recuperamos los filtros que se van a aplicar y los colocamos en un array
 		$filters = Array();
 
@@ -245,6 +300,7 @@ class Filter extends Module {
 		endforeach;
 		
 		$products_description = array();
+		$products_areas = array();
 		$products_sector = array();
 		$products_images = array();
 
@@ -258,24 +314,77 @@ class Filter extends Module {
 			$sql = "SELECT ps_category_lang.name FROM ps_category 
 					INNER JOIN ps_category_lang ON ps_category.id_category = ps_category_lang.id_category 
 					INNER JOIN ps_category_product ON ps_category.id_category = ps_category_product.id_category
-					WHERE ps_category_lang.id_lang = 1 AND ps_category.id_parent = 3 AND ps_category_product.id_product = 2";
+					WHERE ps_category_lang.id_lang = 1 AND ps_category.id_parent = 3 AND ps_category_product.id_product = ".$p['id_product'];
 			$result = DB::getInstance()->ExecuteS($sql);
 
 			foreach($result as $s):
 				$products_sector[$p['id_product']] = $s['name'];
 			endforeach;
 
+			/*Obtnemeos el area*/
+			$sql = "SELECT ps_feature_value_lang.value FROM ps_feature_product
+					INNER JOIN ps_feature_value ON ps_feature_product.id_feature_value = ps_feature_value.id_feature_value
+					INNER JOIN ps_feature_value_lang ON ps_feature_value_lang.id_feature_value = ps_feature_value.id_feature_value
+					INNER JOIN ps_feature ON ps_feature_value.id_feature = ps_feature.id_feature
+					INNER JOIN ps_feature_lang ON ps_feature.id_feature = ps_feature_lang.id_feature
+					WHERE ps_feature_lang.id_lang = 1 
+					AND ps_feature_value_lang.id_lang = 1 
+					AND ps_feature.id_feature = 7 
+					AND ps_feature_product.id_product = ".$p['id_product'];
+			$result = DB::getInstance()->ExecuteS($sql);
+			$products_areas[$p['id_product']] = "";
+			foreach($result as $a):
+				$products_areas[$p['id_product']] = $a['value'];
+			endforeach;
+
 			$pi = Product::getCover($p['id_product']);
 			$pi = new Image($pi);
 			$products_images[$p['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath()."-large_default.jpg";;
 		endforeach;
-		
-		global $smarty;
+
+		$smarty->assign('products_count', count($products));
+
+		//Organizamos la paginación
+		$pagination = array();
+
+		if(count($products) > 8):
+			$m = count($products) / 8;
+			if(is_float($m))
+				$m = $m + 1;
+			for($i=1; $i < $m  ; $i++):
+				array_push($pagination, array($i, "http://creacioninmobiliaria.com/index.php?controller=category?category=".Tools::getValue('category')."&page=".$i));
+				//echo "http://creacioninmobiliaria.com/index.php?controller=category?category=5&page=".$i;
+			endfor;
+		endif;
+		$smarty->assign('pagination', $pagination);
+
+		//Filtramos la páginacion
+		$page = Tools::getValue('page');
+		if(!is_null($page) && $page != ""):
+			$rep = 0;
+			$min = 8 * ($page - 1);
+			$max = 8 * $page;
+			foreach($products as $key => $value):
+				$rep = $rep + 1;
+				if($rep > $max || $rep < ($min + 1)):
+					unset($products[$key]);
+				endif;
+			endforeach;
+		else:
+			$rep = 0;
+			foreach($products as $key => $value):
+				$rep = $rep + 1;
+				if($rep > 8):
+					unset($products[$key]);
+				endif;
+			endforeach;
+		endif;
+
 		$smarty->assign('products', $products);
 		$smarty->assign('products_sector', $products_sector);
+		$smarty->assign('products_areas', $products_areas);
 		$smarty->assign('products_description', $products_description);
 		$smarty->assign('products_images', $products_images);
-		$smarty->assign('products_count', count($products));
 
 		$sql = "SELECT name FROM ps_category_lang WHERE id_category = ".Tools::getValue('category')." AND id_lang = 1";
 		$title = DB::getInstance()->ExecuteS($sql);

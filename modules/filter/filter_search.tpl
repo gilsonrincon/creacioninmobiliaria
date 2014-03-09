@@ -22,8 +22,8 @@ $products_description[$p.id_product] = Descripcion del producto
 			<p><span>Código:</span> {$p.reference} </p>
 			<hr/>
 			<p><span>Precio:</span> <span style="color:#218dcb;"> $ {$p.price}</span></p> 
-			<p><span>Area:</span></p>
-			<p><span>Sector:</span></p>
+			<p><span>Area:</span><span style="color:#218dcb;"> {$products_areas[$p.id_product]}</span></p>
+			<p><span>Sector:</span><span style="color:#218dcb;"> {$products_sector[$p.id_product]}</span></p>
 			<div id="description">
 				<span>Descripción:</span>{$products_description[$p.id_product]}
 			</div>
@@ -32,6 +32,12 @@ $products_description[$p.id_product] = Descripcion del producto
 				VER MAS
 			</a>
 		  </li>	
+		{/foreach}
+	</ul>
+
+	<ul class="pagination-general">
+		{foreach from=$pagination item=p}
+			<li><a href="{$p[1]}">{$p[0]}</a></li>
 		{/foreach}
 	</ul>
 </div>
