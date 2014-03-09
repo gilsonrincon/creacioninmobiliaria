@@ -57,6 +57,43 @@ class ProductoControllerCore extends FrontController
 		endforeach;
 		$smarty->assign('images', $images);
 
+
+		$sql = "SELECT * FROM ps_feature_product
+				INNER JOIN ps_feature_value 
+				ON ps_feature_product.id_feature_value = ps_feature_value.id_feature_value
+				INNER JOIN ps_feature_value_lang 
+				ON ps_feature_value_lang.id_feature_value = ps_feature_value.id_feature_value
+				INNER JOIN ps_feature 
+				ON ps_feature_value.id_feature = ps_feature.id_feature
+				INNER JOIN ps_feature_lang 
+				ON ps_feature.id_feature = ps_feature_lang.id_feature
+				WHERE ps_feature_lang.id_lang = 1 
+				AND ps_feature_value_lang.id_lang = 1 
+				AND ps_feature_product.id_product = ".Tools::getValue('id_product');
+		$features = DB::getInstance()->ExecuteS($sql);
+
+		$smarty->assign('features', $features);
+  		 /* $caracteristicas=Product::getFeaturesStatic(12);
+		  $caracteristica=Feature::getFeature(1,2);
+		  $valor=FeatureValue::getFeatureValuesWithLang(1,2);
+
+		  echo '<pre>';
+		  echo var_dump($caracteristicas);
+		  echo '</pre>';
+
+		  echo '<hr />';
+
+		  echo '<pre>';
+		  echo var_dump($caracteristica);
+		  echo '</pre>';
+
+		  echo '<hr />';
+
+		  echo '<pre>';
+		  echo var_dump($valor);
+		  echo '</pre>';
+		  */
+		
 		$this->setTemplate(_PS_THEME_DIR_.'creacion_product.tpl');
 	}
 }
