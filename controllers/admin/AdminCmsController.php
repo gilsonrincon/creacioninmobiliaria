@@ -49,6 +49,11 @@ class AdminCmsControllerCore extends AdminController
 			'active' => array('title' => $this->l('Displayed'), 'width' => 25, 'align' => 'center', 'active' => 'status', 'type' => 'bool', 'orderby' => false)
 		);
 
+		$this->fieldImageSettings = array(
+ 			'name' => 'image',
+ 			'dir' => 'cms_cover'
+ 		);
+
 		// The controller can't be call directly
 		// In this case, AdminCmsContentController::getCurrentCMSCategory() is null
 		if (!AdminCmsContentController::getCurrentCMSCategory())
@@ -124,6 +129,13 @@ class AdminCmsControllerCore extends AdminController
 					'lang' => true,
 					'hint' => $this->l('Invalid characters:').' <>;=#{}',
 					'size' => 70
+				),
+				array(
+					'type' => 'file',
+					'label' => $this->l('Image:'),
+					'name' => 'image',
+					'display_image' => true,
+					'desc' => $this->l('Subir imagen para el articulo.')
 				),
 				array(
 					'type' => 'tags',
@@ -259,9 +271,40 @@ class AdminCmsControllerCore extends AdminController
 		parent::getList($id_lang, $order_by, $order_way, $start, $limit, $id_lang_shop);
 	}
 	
+	//método que procesa la imagen enviada vía post $_FILES['image'], esto lo hace según un $id, ya sea pasado vía post o por la creación de un objeto CMS
+	private function processImageCMS($id_cms){
+		//se procesede si existe un nombre de imagen
+		if(strlen($_FILES['image']['tmp_name'])>0){
+			//se construye el nombre del archivo
+			$imagen=$id_cms.'.jpg';
+
+			//se crea el path completo para guardar la imagen
+			$imgPath=_PS_CMS_COVER_IMG_DIR_.$imagen;
+
+			//si existe el archivo de imagen se procede a borrarlo
+			if(file_exists($imgPath)){
+				unlink($imgPath);
+			}
+			move_uploaded_file($_FILES['image']['tmp_name'], $imgPath);
+		}
+	}
+
+	//Borra la imagen del cms según el id indicado
+	private function deleteImageCMS($id_cms){
+		//se construye el nombre del archivo
+		$imagen=$id_cms.'.jpg';
+
+		//se crea el path completo para guardar la imagen
+		$imgPath=_PS_CMS_COVER_IMG_DIR_.$imagen;
+
+		//si existe el archivo de imagen se procede a borrarlo
+		if(file_exists($imgPath)){
+			unlink($imgPath);
+		}
+	}
+
 	public function postProcess()
 	{
-	
 		if (Tools::isSubmit('viewcms') && ($id_cms = (int)Tools::getValue('id_cms')) && ($cms = new CMS($id_cms, $this->context->language->id)) && Validate::isLoadedObject($cms))
 		{
 			$redir = $this->context->link->getCMSLink($cms);
@@ -282,6 +325,7 @@ class AdminCmsControllerCore extends AdminController
 			}
 			$cms = new CMS((int)Tools::getValue('id_cms'));
 			$cms->cleanPositions($cms->id_cms_category);
+			$this->deleteImageCMS($cms->id);
 			if (!$cms->delete())
 				$this->errors[] = Tools::displayError('An error occurred while deleting the object.')
 					.' <b>'.$this->table.' ('.Db::getInstance()->getMsgError().')</b>';
@@ -320,12 +364,15 @@ class AdminCmsControllerCore extends AdminController
             if (!$id_cms = (int)Tools::getValue('id_cms'))
             {
                 $cms = new CMS();
+
                 $this->copyFromPost($cms, 'cms');
                 if (!$cms->add())
-                    $this->errors[] = Tools::displayError('An error occurred while creating an object.')
+                	$this->errors[] = Tools::displayError('An error occurred while creating an object.')
                         .' <b>'.$this->table.' ('.Db::getInstance()->getMsgError().')</b>';
-                else
-                    $this->updateAssoShop($cms->id);
+                else{
+									$this->updateAssoShop($cms->id);
+									$this->processImageCMS($cms->id);
+                }
             }
             else
             {
@@ -334,8 +381,10 @@ class AdminCmsControllerCore extends AdminController
                 if (!$cms->update())
                     $this->errors[] = Tools::displayError('An error occurred while updating an object.')
                         .' <b>'.$this->table.' ('.Db::getInstance()->getMsgError().')</b>';
-                else
-                    $this->updateAssoShop($cms->id);
+                else{
+									$this->updateAssoShop($cms->id);
+									$this->processImageCMS($cms->id);
+                }
             }
             if (Tools::isSubmit('submitAddcmsAndPreview'))
             {

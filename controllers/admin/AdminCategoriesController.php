@@ -229,7 +229,7 @@ class AdminCategoriesControllerCore extends AdminController
 	public function renderView()
 	{
 		$this->initToolbar();
-		return $this->renderList();
+		//return $this->renderList();
 	}
 
 	public function initToolbar()

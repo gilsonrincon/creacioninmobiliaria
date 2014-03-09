@@ -59,10 +59,20 @@ class CMSCore extends ObjectModel
 		),
 	);
 
+	/** @var string id_image is the category ID when an image exists and 'default' otherwise */
+	public $id_image = 'default';
+	public $image_dir = _PS_CMS_COVER_IMG_DIR_;
+	
 	protected	$webserviceParameters = array(
 		'objectNodeName' => 'content',
 		'objectsNodeName' => 'content_management_system',
 	);
+
+	/*public function __construct($id_cms=null,$id_lang=null,$id_shop=null){
+		parent::__construct($id_category, $id_lang, $id_shop);
+		$this->id_image = ($this->id && file_exists(_PS_CMS_COVER_IMG_DIR_.(int)$this->id.'.jpg')) ? (int)$this->id : false;
+		$this->image_dir = _PS_CMS_COVER_IMG_DIR_;
+	}*/
 
 	public function add($autodate = true, $null_values = false)
 	{

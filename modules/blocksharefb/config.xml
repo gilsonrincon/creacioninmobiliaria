@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>blocksharefb</name>
-            <displayName><![CDATA[Facebook sharing block.]]></displayName>
+            <displayName><![CDATA[Bloque&nbsp;Compartir&nbsp;en Facebook]]></displayName>
             <version><![CDATA[1.1]]></version>
-            <description><![CDATA[Allows customers to share your products -- or website content -- on Facebook. ]]></description>
+            <description><![CDATA[Agrega un bloque&nbsp;para mostrar un enlace&nbsp;&amp;quot;Compartir&nbsp;en Facebook&amp;quot; en las p&aacute;ginas&nbsp;de productos.]]></description>
             <author><![CDATA[]]></author>
             <tab><![CDATA[front_office_features]]></tab>
             <is_configurable>0</is_configurable>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>luxury</name>
-            <displayName><![CDATA[Propiedades de lojo]]></displayName>
+            <displayName><![CDATA[Propiedades de lujo]]></displayName>
             <version><![CDATA[1]]></version>
             <description><![CDATA[Modulo que muestra las propiedades de lojo.]]></description>
             <author><![CDATA[STUDIOWEB &amp; MARKETING | Frontend: Estefany V&eacute;lez | Backend: Andr&eacute;s Aguilar]]></author>

@@ -69,6 +69,7 @@ define('_PS_IMG_DIR_',              _PS_ROOT_DIR_.'/img/');
 if (!defined('_PS_MODULE_DIR_'))
 	define('_PS_MODULE_DIR_',              _PS_ROOT_DIR_.'/modules/');
 define('_PS_CAT_IMG_DIR_',          _PS_IMG_DIR_.'c/');
+define('_PS_CMS_COVER_IMG_DIR_',    _PS_IMG_DIR_.'cms_cover/');
 define('_PS_STORE_IMG_DIR_',		_PS_IMG_DIR_.'st/');
 define('_PS_PROD_IMG_DIR_',         _PS_IMG_DIR_.'p/');
 define('_PS_SCENE_IMG_DIR_',        _PS_IMG_DIR_.'scenes/');

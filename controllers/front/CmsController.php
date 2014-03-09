@@ -111,6 +111,7 @@ class CmsControllerCore extends FrontController
 		{
 			$this->context->smarty->assign(array(
 				'cms' => $this->cms,
+				'image' => _PS_CMS_COVER_IMG_DIR_.$this->cms->id.'.jpg',
 				'content_only' => (int)(Tools::getValue('content_only')),
 				'path' => $path
 			));
@@ -129,6 +130,12 @@ class CmsControllerCore extends FrontController
 			));
 		}
 
-		$this->setTemplate(_PS_THEME_DIR_.'cms.tpl');
+		if($this->cms->id_cms_category==2){
+			$this->context->smarty->assign(array('actualidad',true));
+			$this->setTemplate(_PS_THEME_DIR_.'cms_actualidad.tpl');
+		}else{
+			$this->context->smarty->assign(array('actualidad',false));
+			$this->setTemplate(_PS_THEME_DIR_.'cms.tpl');
+		}
 	}
 }

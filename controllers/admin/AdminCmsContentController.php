@@ -149,6 +149,8 @@ class AdminCmsContentControllerCore extends AdminController
 
 		if (isset($this->admin_cms_categories->errors))
 			$this->errors = array_merge($this->errors, $this->admin_cms_categories->errors);
+
+		//se procesa la imagen, en caso de contar con una imagen para un cms determinado
 	}
 
 	public function setMedia()
