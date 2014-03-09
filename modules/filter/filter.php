@@ -211,6 +211,7 @@ class Filter extends Module {
 		$products_description = array();
 		$products_sector = array();
 		$products_images = array();
+		$products_areas = array();
 
 		foreach ($products as $p):
 			/*Obtenemos la descripcion corta*/
@@ -229,6 +230,23 @@ class Filter extends Module {
 				$products_sector[$p['id_product']] = $s['name'];
 			endforeach;
 
+			/*Obtnemeos el area*/
+			$sql = "SELECT ps_feature_value_lang.value FROM ps_feature_product
+					INNER JOIN ps_feature_value ON ps_feature_product.id_feature_value = ps_feature_value.id_feature_value
+					INNER JOIN ps_feature_value_lang ON ps_feature_value_lang.id_feature_value = ps_feature_value.id_feature_value
+					INNER JOIN ps_feature ON ps_feature_value.id_feature = ps_feature.id_feature
+					INNER JOIN ps_feature_lang ON ps_feature.id_feature = ps_feature_lang.id_feature
+					WHERE ps_feature_lang.id_lang = 1 
+					AND ps_feature_value_lang.id_lang = 1 
+					AND ps_feature.id_feature = 7 
+					AND ps_feature_product.id_product = ".$p['id_product'];
+			$result = DB::getInstance()->ExecuteS($sql);
+			
+			$products_areas[$p['id_product']] = "";
+			foreach($result as $a):
+				$products_areas[$p['id_product']] = $a['value'];
+			endforeach;
+
 			$pi = Product::getCover($p['id_product']);
 			$pi = new Image($pi);
 			$products_images[$p['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath()."-large_default.jpg";;
@@ -236,6 +254,7 @@ class Filter extends Module {
 		
 		$smarty->assign('products', $products);
 		$smarty->assign('products_sector', $products_sector);
+		$smarty->assign('products_areas', $products_areas);
 		$smarty->assign('products_description', $products_description);
 		$smarty->assign('products_images', $products_images);
 		$smarty->assign('title', 'Resultados de busqueda');
@@ -281,6 +300,7 @@ class Filter extends Module {
 		endforeach;
 		
 		$products_description = array();
+		$products_areas = array();
 		$products_sector = array();
 		$products_images = array();
 
@@ -294,11 +314,27 @@ class Filter extends Module {
 			$sql = "SELECT ps_category_lang.name FROM ps_category 
 					INNER JOIN ps_category_lang ON ps_category.id_category = ps_category_lang.id_category 
 					INNER JOIN ps_category_product ON ps_category.id_category = ps_category_product.id_category
-					WHERE ps_category_lang.id_lang = 1 AND ps_category.id_parent = 3 AND ps_category_product.id_product = 2";
+					WHERE ps_category_lang.id_lang = 1 AND ps_category.id_parent = 3 AND ps_category_product.id_product = ".$p['id_product'];
 			$result = DB::getInstance()->ExecuteS($sql);
 
 			foreach($result as $s):
 				$products_sector[$p['id_product']] = $s['name'];
+			endforeach;
+
+			/*Obtnemeos el area*/
+			$sql = "SELECT ps_feature_value_lang.value FROM ps_feature_product
+					INNER JOIN ps_feature_value ON ps_feature_product.id_feature_value = ps_feature_value.id_feature_value
+					INNER JOIN ps_feature_value_lang ON ps_feature_value_lang.id_feature_value = ps_feature_value.id_feature_value
+					INNER JOIN ps_feature ON ps_feature_value.id_feature = ps_feature.id_feature
+					INNER JOIN ps_feature_lang ON ps_feature.id_feature = ps_feature_lang.id_feature
+					WHERE ps_feature_lang.id_lang = 1 
+					AND ps_feature_value_lang.id_lang = 1 
+					AND ps_feature.id_feature = 7 
+					AND ps_feature_product.id_product = ".$p['id_product'];
+			$result = DB::getInstance()->ExecuteS($sql);
+			$products_areas[$p['id_product']] = "";
+			foreach($result as $a):
+				$products_areas[$p['id_product']] = $a['value'];
 			endforeach;
 
 			$pi = Product::getCover($p['id_product']);
@@ -307,8 +343,6 @@ class Filter extends Module {
 		endforeach;
 
 		$smarty->assign('products_count', count($products));
-		
-
 
 		//Organizamos la paginación
 		$pagination = array();
@@ -348,6 +382,7 @@ class Filter extends Module {
 
 		$smarty->assign('products', $products);
 		$smarty->assign('products_sector', $products_sector);
+		$smarty->assign('products_areas', $products_areas);
 		$smarty->assign('products_description', $products_description);
 		$smarty->assign('products_images', $products_images);
 
