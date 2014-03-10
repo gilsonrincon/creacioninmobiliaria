@@ -173,6 +173,18 @@ class ProductDisplay extends Module {
 		if(count($category) > 0):
 			$tpl = 'creacion_product.tpl';
 		else:
+			
+			/*Obtenemos los archivos adjuntos*/
+			$adjunto = new Attachment;
+			$file = $adjunto->getAttachments(1, Tools::getValue('id_product'));
+
+			$files = array();
+			foreach($file as $f):
+				array_push($files, "http://creacioninmobiliaria.com/download/".$f['file']);
+			endforeach;
+			
+			$smarty->assign('files',  $files);
+
 			$tpl = 'creacion_project.tpl';
 		endif;
 

@@ -310,7 +310,6 @@ class ProductControllerCore extends FrontController
 			$smarty->assign('HOOK_FEATURED',  Hook::exec('outstandingInternal'));
 		endif;
 
-
 		$this->setTemplate(_PS_THEME_DIR_.'product.tpl');
 	}
 

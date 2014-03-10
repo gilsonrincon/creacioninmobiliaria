@@ -23,4 +23,6 @@ Numero de habitaciones: {$features.habitaciones}<br>
 {*Baños familiares*}
 Baños familiares: {$features.banos_f}<br>
 
-<a href="/" target="_blank">Descargar Brochure</a>
+{foreach from=$files item=item}
+	<a href="{$item}" target="_blank">Descargar Brochure</a>
+{/foreach}
