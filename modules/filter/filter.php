@@ -114,12 +114,51 @@ class Filter extends Module {
 				WHERE  ps_category_lang.id_category = ps_category.id_category and ps_category.id_parent = 26 ORDER BY name";
 		$type  = DB::getInstance()->ExecuteS($sql);
 
+		$pro = Tools::getValue('id_product');
+
+		if($pro):
+			$sql = "SELECT * FROM ps_category_product 
+					WHERE id_product = ".Tools::getValue('id_product')." AND id_category = 4";
+			$p  = DB::getInstance()->ExecuteS($sql);
+
+			if(count($p) > 0):
+				$is_project = true;
+			else:
+				$is_project = false;
+			endif;
+		elseif(Tools::getValue('category')):
+			if(Tools::getValue('category') == 4):
+				$is_project = true;
+			else:
+				$is_project = false;
+			endif;
+		else:
+			$is_project = false;
+		endif;
+
 		$smarty->assign('type', $type);
 		$smarty->assign('status', $status);
 		$smarty->assign('area', $area);
 		$smarty->assign('sector', $sector);
 		$smarty->assign('categories', $result);
-		$smarty->assign('category', Tools::getValue('category'));
+
+		$category = 0;
+		if(Tools::getValue('category')):
+			$category = Tools::getValue('category');
+		elseif(Tools::getValue('id_product')):
+			$sql = "SELECT * FROM ps_category_product 
+					WHERE id_product = ".Tools::getValue('id_product')." AND id_category = 4";
+			$result = DB::getInstance()->ExecuteS($sql);
+
+			$category = 5;
+			if(count($result))
+				$category = 4;
+		endif;
+
+		$smarty->assign('category', $category);
+		if($is_project)
+			return $this->display(__FILE__, 'filter_project.tpl');
+
 		return $this->display(__FILE__, 'filter.tpl');
 	}
 
@@ -143,6 +182,9 @@ class Filter extends Module {
 
 		if(Tools::getValue('price_range') > 0)
 			array_push($filters, Tools::getValue('price_range'));
+
+		if(Tools::getValue('maincategory') > 0)
+			array_push($filters, Tools::getValue('maincategory'));
 
 
 		//Seleccionamos todos los productos de la base de datos para luego filtrar los que
@@ -180,7 +222,7 @@ class Filter extends Module {
 			if(is_float($m))
 				$m = $m + 1;
 			for($i=1; $i < $m  ; $i++):
-				array_push($pagination, array($i, "http://creacioninmobiliaria.com/index.php?controller=filter&type=".Tools::getValue('type')."&sector=".Tools::getValue('sector')."&price_range=".Tools::getValue('price_range')."&area=".Tools::getValue('area')."&status=".Tools::getValue('status')."&page=".$i));
+				array_push($pagination, array($i, "http://creacioninmobiliaria.com/index.php?controller=filter&type=".Tools::getValue('type')."&sector=".Tools::getValue('sector')."&price_range=".Tools::getValue('price_range')."&area=".Tools::getValue('area')."&status=".Tools::getValue('status')."&maincategory=".Tools::getValue('maincategory')."&page=".$i));
 				//echo "http://creacioninmobiliaria.com/index.php?controller=category?category=5&page=".$i;
 			endfor;
 		endif;

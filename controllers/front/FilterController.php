@@ -43,7 +43,8 @@ class FilterControllerCore extends FrontController
 		$result = DB::getInstance()->ExecuteS($sql);
 		*/
 
-		$this->context->smarty->assign('HOOK_FILTER', Hook::exec('filterSearch'));
+		$this->context->smarty->assign('HOOK_FILTER', Hook::exec('filterInternal'));
+		$this->context->smarty->assign('HOOK_FILTER_SEARCH', Hook::exec('filterSearch'));
 		$this->setTemplate(_PS_THEME_DIR_.'filter.tpl');
 	}
 }

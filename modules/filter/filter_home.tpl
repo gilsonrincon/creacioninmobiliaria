@@ -16,6 +16,7 @@ lo que se haya hecho en el frontend.
 	
 	<div class="filter_home">
 		<h3>REALIZA TU BUSQUEDA</h3>
+		<input type="hidden" name="maincategory" value="0">
 		<form class="form-filtre" action="http://creacioninmobiliaria.com/index.php?controller=filter" method="post">
 			<select name="type" id="propertyType">
 				

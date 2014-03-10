@@ -39,7 +39,6 @@ class CategoryControllerCore extends FrontController
 
 		$this->context->smarty->assign('banner', $banner);
 		$this->context->smarty->assign('HOOK_FILTER', Hook::exec('filterInternal'));
-		$this->context->smarty->assign('HOOK_FILTER', Hook::exec('filterInternal'));
 		$this->context->smarty->assign('HOOK_FILTER_SEARCH', Hook::exec('filterCategorySearch'));
 		$this->setTemplate(_PS_THEME_DIR_.'category.tpl');
 	}

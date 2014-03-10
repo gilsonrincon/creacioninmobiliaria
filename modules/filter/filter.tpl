@@ -35,14 +35,14 @@ lo que se haya hecho en el frontend.
 		<select name="price_range">
 			<option value="Rango de precios">RANGO DE PRECIOS</option>
 		</select>
-
+		
 		<select class="price-select" name="area">
 			<option value="0">AREA:</option>
 			{foreach from=$area item=c}
 				<option value={$c.id_category}>{$c.name}</option>
 			{/foreach}
 		</select>
-
+		
 		<select class="new-select" name="status">
 			{foreach from=$status item=c}
 				<option value={$c.id_category}>{$c.name}</option>

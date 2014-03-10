@@ -10,7 +10,6 @@ $p.price     = precio del producto
 $products_description[$p.id_product] = Descripcion del producto
 
 **}
-Hola
 <div id="container-results">
 	<h1>{$title}</h1>
 	<h2>Se encontraron <span>{$products_count}</span> resultados</h2>
