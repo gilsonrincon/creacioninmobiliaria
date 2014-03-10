@@ -22,7 +22,7 @@ class Outstanding extends Module {
 
 	public function install()
 	{
-		if(parent::install() == false OR !$this->registerHook('outstandingHome'))
+		if(parent::install() == false OR !$this->registerHook('outstandingHome') OR !$this->registerHook('outstandingInternal'))
 	    	return false;
 	    return true;
 	}
@@ -69,14 +69,38 @@ class Outstanding extends Module {
 		return $this->display(__FILE__, 'outstanding.tpl');
 	}
 
-	static public function getCoverShop($id_product, $id_shop){
- 		 $sql='select i.id_image 
-   		from ps_image_shop ih INNER JOIN ps_image i ON i.id_image=ih.id_image 
-  		 where ih.id_shop='.$id_shop.' and i.id_product='.$id_product.' and ih.cover=1';
- 		 $id_image=Db::getInstance()->getValue($sql);
+ public function hookOutstandingInternal()
+	{
+		global $smarty;
+		
+		$sql = "SELECT DISTINCT(ps_product.id_product),
+				ps_product.id_category_default, 
+				ps_product_lang.name,
+				ps_product_lang.description_short,
+				ps_category_product.id_category
+				FROM ps_product, ps_product_lang, ps_category_product 
+				WHERE ps_product.id_product = ps_product_lang.id_product
+				AND ps_product.id_product = ps_category_product.id_product 
+				AND ps_product_lang.id_lang = 1 
+				AND ps_category_product.id_category = 10 ORDER BY RAND() LIMIT 2";
 
-  return (int)$id_image;
- }
+		//Ejecutamos la consulta y almacenamos en resultado en una variable y luego a una smarty
+		$outstanding  = DB::getInstance()->ExecuteS($sql); 
+		$smarty->assign('outstanding', $outstanding);
+		
+
+		//obtiene la url de la imagen del producto y las guardamos en un array llamado images 
+		//y la pasamos a smarty
+		$images = array();
+		foreach ($outstanding as $out):
+			$pi = Product::getCover($out['id_product']);
+			$pi = new Image($pi);
+			$images[$out['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath().".jpg";;
+		endforeach;
+		$smarty->assign('images', $images);
+		
+		return $this->display(__FILE__, 'outstanding_internal.tpl');
+	}
 }
 
 ?>

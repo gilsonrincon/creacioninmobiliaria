@@ -71,29 +71,89 @@ class ProductoControllerCore extends FrontController
 				AND ps_feature_value_lang.id_lang = 1 
 				AND ps_feature_product.id_product = ".Tools::getValue('id_product');
 		$features = DB::getInstance()->ExecuteS($sql);
+		$feature_for_smarty = array();
+		foreach($features as $f){
 
-		$smarty->assign('features', $features);
-  		 /* $caracteristicas=Product::getFeaturesStatic(12);
-		  $caracteristica=Feature::getFeature(1,2);
-		  $valor=FeatureValue::getFeatureValuesWithLang(1,2);
+		    switch ($f['name']) {
+		    	case 'Año de Construcción':
+		    		$features_for_smarty['construccion'] = $f['value'];
+		    	break;
 
-		  echo '<pre>';
-		  echo var_dump($caracteristicas);
-		  echo '</pre>';
+		    	case 'Ciudad':
+		    		$features_for_smarty['ciudad'] = $f['value'];
+		    	break;
 
-		  echo '<hr />';
+		    	case 'Barrio':
+		    		$features_for_smarty['barrio'] = $f['value'];
+		    	break;
 
-		  echo '<pre>';
-		  echo var_dump($caracteristica);
-		  echo '</pre>';
+		    	case 'Estrato':
+		    		$features_for_smarty['estrato'] = $f['value'];
+		    	break;
 
-		  echo '<hr />';
+		    	case 'Área total':
+		    		$features_for_smarty['area_t'] = $f['value'];
+		    	break;
 
-		  echo '<pre>';
-		  echo var_dump($valor);
-		  echo '</pre>';
-		  */
-		
+		    	case 'Área Construida':
+		    		$features_for_smarty['area_c'] = $f['value'];
+		    	break;
+
+		    	case 'Valor Administración':
+		    		$features_for_smarty['admin_v'] = $f['value'];
+		    	break;
+
+		    	case 'Numero de niveles':
+		    		$features_for_smarty['niveles'] = $f['value'];
+		    	break;
+
+		    	case 'Numero de habitaciones':
+		    		$features_for_smarty['habitaciones'] = $f['value'];
+		    	break;
+
+		    	case 'Baños familiares':
+		    		$features_for_smarty['banos_f'] = $f['value'];
+		    	break;
+
+				case 'Alcoba de Servicio':
+		    		$features_for_smarty['servicio'] = $f['value'];
+		    	break;
+
+				case 'Parqueaderos':
+		    		$features_for_smarty['parqueaderos'] = $f['value'];
+		    	break;
+
+		    	case 'Util ':
+		    		$features_for_smarty['util'] = $f['value'];
+		    	break;
+
+		    	case 'Zona verde':
+		    		$features_for_smarty['zona_verde'] = $f['value'];
+		    	break;
+
+		    	case 'Baño Social':
+		    		$features_for_smarty['bano_social'] = $f['value'];
+		    	break;
+
+		    	default:
+		    	
+		    	break;
+		    }
+		}
+
+		$sql = "SELECT * FROM ps_category_product WHERE id_product = ".Tools::getValue('id_product')." 
+				AND id_category = 5";
+		$category = DB::getInstance()->ExecuteS($sql);
+
+		if(count($category) > 0):
+			$smarty->assign('HOOK_FEATURED',  Hook::exec('luxuryInternal'));
+		else:
+			$smarty->assign('HOOK_FEATURED',  Hook::exec('outstandingInternal'));
+		endif;
+
+		$smarty->assign('HOOK_CONTACT',  Hook::exec('productContact'));
+
+		$smarty->assign('features', $features_for_smarty);
 		$this->setTemplate(_PS_THEME_DIR_.'creacion_product.tpl');
 	}
 }
