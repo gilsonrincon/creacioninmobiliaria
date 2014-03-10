@@ -97,7 +97,7 @@ class Outstanding extends Module {
 			$pi = new Image($pi);
 			$images[$out['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath().".jpg";;
 		endforeach;
-		$smarty->assign('images', $images);
+		$smarty->assign('images_o', $images);
 		
 		return $this->display(__FILE__, 'outstanding_internal.tpl');
 	}

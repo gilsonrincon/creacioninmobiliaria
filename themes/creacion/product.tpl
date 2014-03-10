@@ -157,6 +157,8 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 </script>
 
 {include file="$tpl_dir./breadcrumb.tpl"}
+
+<img src="{$banner}">
 <div id="primary_block" class="clearfix">
 
 	{if isset($adminActionDisplay) && $adminActionDisplay}
@@ -228,8 +230,11 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 			{/if}
 		</ul>
 	</div>
-
+	{$HOOK_PRODUCT}
+	{$HOOK_CONTACT}
+	{$HOOK_FEATURED}
 	<!-- left infos-->
+	<!--
 	<div id="pb-left-column">
 		<h1>{$product->name|escape:'htmlall':'UTF-8'}</h1>
 
@@ -257,6 +262,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 
 		{*{if isset($colors) && $colors}
 		<!-- colors -->
+		<!--
 		<div id="color_picker">
 			<p>{l s='Pick a color:' js=1}</p>
 			<div class="clear"></div>
@@ -270,10 +276,11 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 		{/if}*}
 
 		{if ($product->show_price AND !isset($restricted_country_mode)) OR isset($groups) OR $product->reference OR (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
-		<!-- add to cart form-->
+		<!-- add to cart form--><!--
 		<form id="buy_block" {if $PS_CATALOG_MODE AND !isset($groups) AND $product->quantity > 0}class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html'}" method="post">
 
 			<!-- hidden datas -->
+			<!--
 			<p class="hidden">
 				<input type="hidden" name="token" value="{$static_token}" />
 				<input type="hidden" name="id_product" value="{$product->id|intval}" id="product_page_product_id" />
@@ -284,6 +291,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 			<div class="product_attributes">
 				{if isset($groups)}
 				<!-- attributes -->
+				<!--
 				<div id="attributes">
 				<div class="clear"></div>
 				{foreach from=$groups key=id_attribute_group item=group}
@@ -336,13 +344,13 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				<span class="editable">{$product->reference|escape:'htmlall':'UTF-8'}</span>
 			</p>
 
-			<!-- quantity wanted -->
+			<!-- quantity wanted --><!--
 			<p id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) OR $virtual OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>
 				<label>{l s='Quantity:'}</label>
 				<input type="text" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" size="2" maxlength="3" {if $product->minimal_quantity > 1}onkeyup="checkMinimalQuantity({$product->minimal_quantity});"{/if} />
 			</p>
 
-			<!-- minimal quantity wanted -->
+			<!-- minimal quantity wanted --><!--
 			<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>
 				{l s='This product is not sold individually. You must select at least'} <b id="minimal_quantity_label">{$product->minimal_quantity}</b> {l s='quantity for this product.'}
 			</p>
@@ -352,7 +360,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 			</script>
 			{/if}
 
-			<!-- availability -->
+			<!-- availability --><!--
 			<p id="availability_statut"{if ($product->quantity <= 0 && !$product->available_later && $allow_oosp) OR ($product->quantity > 0 && !$product->available_now) OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>
 				<span id="availability_label">{l s='Availability:'}</span>
 				<span id="availability_value"{if $product->quantity <= 0} class="warning_inline"{/if}>{if $product->quantity <= 0}{if $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{else}{$product->available_now}{/if}</span>				
@@ -361,7 +369,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				<span id="availability_date_label">{l s='Availability date:'}</span>
 				<span id="availability_date_value">{dateFormat date=$product->available_date full=false}</span>
 			</p>
-			<!-- number of item in stock -->
+			<!-- number of item in stock --><!--
 			{if ($display_qties == 1 && !$PS_CATALOG_MODE && $product->available_for_order)}
 			<p id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
 				<span id="quantityAvailable">{$product->quantity|intval}</span>
@@ -370,7 +378,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 			</p>
 			{/if}
 
-			<!-- Out of stock hook -->
+			<!-- Out of stock hook --><!--
 			<div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
 				{$HOOK_PRODUCT_OOS}
 			</div>
@@ -379,7 +387,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 		</div>
 
 		<div class="content_prices clearfix">
-			<!-- prices -->
+			<!-- prices --><!--
 			{if $product->show_price AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
 
 			{if $product->online_only}
@@ -392,7 +400,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 					<span id="our_price_display">{convertPrice price=$productPrice}</span>
 					<!--{if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) OR !isset($display_tax_label))}
 						{if $priceDisplay == 1}{l s='tax excl.'}{else}{l s='tax incl.'}{/if}
-					{/if}-->
+					{/if}--><!--
 				{/if}
 				</p>
 
@@ -418,7 +426,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 			<p id="old_price"{if !$product->specificPrice || !$product->specificPrice.reduction} class="hidden"{/if}>
 			{if $priceDisplay >= 0 && $priceDisplay <= 2}
 					<span id="old_price_display">{if $productPriceWithoutReduction > $productPrice}{convertPrice price=$productPriceWithoutReduction}{/if}</span>
-					<!-- {if $tax_enabled && $display_tax_label == 1}{if $priceDisplay == 1}{l s='tax excl.'}{else}{l s='tax incl.'}{/if}{/if} -->
+					<!-- {if $tax_enabled && $display_tax_label == 1}{if $priceDisplay == 1}{l s='tax excl.'}{else}{l s='tax incl.'}{/if}{/if} --><!--
 			{/if}
 			</p>
 			{if $packItems|@count && $productPrice < $product->getNoPackPrice()}
@@ -451,9 +459,11 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 		{if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
 	</div>
 </div>
-
+-->
+<!--
 {if (isset($quantity_discounts) && count($quantity_discounts) > 0)}
 <!-- quantity discount -->
+<!--
 <ul class="idTabs clearfix">
 	<li><a href="#discount" style="cursor: pointer" class="selected">{l s='Sliding scale pricing'}</a></li>
 </ul>
@@ -501,6 +511,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 {if isset($HOOK_PRODUCT_FOOTER) && $HOOK_PRODUCT_FOOTER}{$HOOK_PRODUCT_FOOTER}{/if}
 
 <!-- description and features -->
+<!--
 {if (isset($product) && $product->description) || (isset($features) && $features) || (isset($accessories) && $accessories) || (isset($HOOK_PRODUCT_TAB) && $HOOK_PRODUCT_TAB) || (isset($attachments) && $attachments) || isset($product) && $product->customizable}
 <div id="more_info_block" class="clear">
 	<ul id="more_info_tabs" class="idTabs idTabsShort clearfix">
@@ -514,10 +525,11 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 	<div id="more_info_sheets" class="sheets align_justify">
 	{if isset($product) && $product->description}
 		<!-- full description -->
+		<!--
 		<div id="idTab1" class="rte">{$product->description}</div>
 	{/if}
 	{if isset($features) && $features}
-		<!-- product's features -->
+		<!-- product's features --><!--
 		<ul id="idTab2" class="bullet">
 		{foreach from=$features item=feature}
             {if isset($feature.value)}
@@ -534,7 +546,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 		</ul>
 	{/if}
 	{if isset($accessories) AND $accessories}
-		<!-- accessories -->
+		<!-- accessories --><!--
 		<div id="idTab4" class="bullet">
 			<div class="block products_block accessories_block clearfix">
 				<div class="block_content">
@@ -571,7 +583,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 		</div>
 	{/if}
 
-	<!-- Customizable products -->
+	<!-- Customizable products --><!--
 	{if isset($product) && $product->customizable}
 		<div id="idTab10" class="bullet customization_block">
 			<form method="post" action="{$customizationFormTarget}" enctype="multipart/form-data" id="customizationForm" class="clearfix">
@@ -645,3 +657,4 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 	</div>
 {/if}
 {/if}
+-->

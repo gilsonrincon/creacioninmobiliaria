@@ -95,7 +95,7 @@ class Luxury extends Module {
 			$pi = new Image($pi);
 			$images[$out['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath().".jpg";;
 		endforeach;
-		$smarty->assign('images', $images); 
+		$smarty->assign('images_l', $images); 
 
 		return $this->display(__FILE__, 'luxury_internal.tpl');
 	}

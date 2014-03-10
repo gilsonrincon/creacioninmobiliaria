@@ -15,7 +15,7 @@ Este modulo muestra las propiedades con categoria de destacadas.
 				</a>	
 				<div class="description-short">
 					{$o.description_short} {*Esta variable guarda la descripción corta del producto*}
-					<a href="http://creacioninmobiliaria.com/index.php?controller=producto&id_product={$o.id_product}">
+					<a href="http://creacioninmobiliaria.com/index.php?id_product={$p.id_product}&controller=product&id_lang=1">
 						Ver más
 					</a>
 				</div>

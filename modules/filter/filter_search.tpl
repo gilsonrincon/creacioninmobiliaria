@@ -17,7 +17,7 @@ Hola
 	<ul>
 		{foreach from=$products item=p}
 		  <li>
-		    <a href="http://creacioninmobiliaria.com/index.php?controller=producto&id_product={$p.id_product}">
+		    <a href="http://creacioninmobiliaria.com/index.php?id_product={$p.id_product}&controller=product&id_lang=1">
 				<img src="{$products_images[$p.id_product]}"><br>
 			</a>
 			<p><span>Código:</span> {$p.reference} </p>
@@ -29,8 +29,8 @@ Hola
 				<span>Descripción:</span>{$products_description[$p.id_product]}
 			</div>
 			
-			<a class="btn-plus" href="http://creacioninmobiliaria.com/index.php?controller=producto&id_product={$p.id_product}">
-				VER MAS
+			<a class="btn-plus" href="http://creacioninmobiliaria.com/index.php?id_product={$p.id_product}&controller=product&id_lang=1">
+				Ver más
 			</a>
 		  </li>	
 		{/foreach}
