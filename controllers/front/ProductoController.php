@@ -169,21 +169,29 @@ class ProductoControllerCore extends FrontController
 				AND id_category = 5";
 		$category = DB::getInstance()->ExecuteS($sql);
 
+		/*Hook de contacto para productos*/
+		$smarty->assign('HOOK_CONTACT',  Hook::exec('productContact'));
+
 		/*
 			Si el producto esta en la categoria 5 renderizamos como destacados las propiedades de lujo
 			de otra forma renderizamos las propiedades destacadas.
 		*/
 
 		if(count($category) > 0):
+			$banner = "http://creacioninmobiliaria.com/img/c/5.jpg";
+			$this->context->smarty->assign('banner', $banner);
 			$smarty->assign('HOOK_FEATURED',  Hook::exec('luxuryInternal'));
+			$this->setTemplate(_PS_THEME_DIR_.'creacion_product.tpl');
 		else:
+			$banner = "http://creacioninmobiliaria.com/img/c/4.jpg";
+			$this->context->smarty->assign('banner', $banner);
 			$smarty->assign('HOOK_FEATURED',  Hook::exec('outstandingInternal'));
+			$this->setTemplate(_PS_THEME_DIR_.'creacion_project.tpl');
 		endif;
 
-		/*Hook de contacto para productos*/
-		$smarty->assign('HOOK_CONTACT',  Hook::exec('productContact'));
+		
 
 
-		$this->setTemplate(_PS_THEME_DIR_.'creacion_product.tpl');
+		
 	}
 }
