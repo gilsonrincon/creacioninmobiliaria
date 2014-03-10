@@ -115,6 +115,14 @@ class CmsControllerCore extends FrontController
 				'content_only' => (int)(Tools::getValue('content_only')),
 				'path' => $path
 			));
+			
+			if($this->cms->id_cms_category==2){
+				$this->context->smarty->assign(array('actualidad',true));
+				$this->setTemplate(_PS_THEME_DIR_.'cms_actualidad.tpl');
+			}else{
+				$this->context->smarty->assign(array('actualidad',false));
+				$this->setTemplate(_PS_THEME_DIR_.'cms.tpl');
+			}
 
 			if ($this->cms->indexation == 0)
 				$this->context->smarty->assign('nobots', true);
@@ -128,14 +136,14 @@ class CmsControllerCore extends FrontController
 				'cms_pages' => CMS::getCMSPages($this->context->language->id, (int)($this->cms_category->id), true, (int)$this->context->shop->id),
 				'path' => ($this->cms_category->id !== 1) ? Tools::getPath($this->cms_category->id, $this->cms_category->name, false, 'CMS') : '',
 			));
-		}
-
-		if($this->cms->id_cms_category==2){
-			$this->context->smarty->assign(array('actualidad',true));
-			$this->setTemplate(_PS_THEME_DIR_.'cms_actualidad.tpl');
-		}else{
-			$this->context->smarty->assign(array('actualidad',false));
-			$this->setTemplate(_PS_THEME_DIR_.'cms.tpl');
+			
+			if($this->cms_category->id==2){
+				$this->context->smarty->assign(array('actualidad',true));
+				$this->setTemplate(_PS_THEME_DIR_.'cms_actualidad.tpl');
+			}else{
+				$this->context->smarty->assign(array('actualidad',false));
+				$this->setTemplate(_PS_THEME_DIR_.'cms.tpl');
+			}
 		}
 	}
 }
