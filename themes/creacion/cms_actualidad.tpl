@@ -21,6 +21,9 @@
 
 			<!-- contenido del artículo simple -->
 			<div class="rte{if $content_only} content_only{/if}">
+				<div class="img-articulo">
+					<img src="{$content_dir|addslashes}img/cms_cover/{$cms->id}.jpg" alt="">
+				</div>
 				{$cms->content}
 			</div>
 		{elseif isset($cms_category)}
@@ -31,7 +34,25 @@
 					<ul class="bullet lista-articulos-actualidad">
 						{foreach from=$cms_pages item=cmspages}
 							<li class="articulo-actualidad">
-								<a href="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}">{$cmspages.meta_title|escape:'htmlall':'UTF-8'}</a>
+								<a class="img" href="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}">
+									<img src="" alt="">
+								</a>
+								<a class="title" href="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}">
+									<h3>
+										{$cmspages.meta_title|escape:'htmlall':'UTF-8'}
+									</h3>
+								</a>
+								<div class="description">
+									{$cmspages.meta_description|escape:'htmlall':'UTF-8'}
+								</div>
+								<div class="compartir">
+									<span class='st_sharethis_large' displayText='ShareThis' st_url="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}"></span>
+									<span class='st_facebook_large' displayText='Facebook' st_url="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}"></span>
+									<span class='st_twitter_large' displayText='Tweet' st_url="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}"></span>
+									<span class='st_linkedin_large' displayText='LinkedIn' st_url="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}"></span>
+									<span class='st_pinterest_large' displayText='Pinterest' st_url="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}"></span>
+									<span class='st_email_large' displayText='Email' st_url="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}"></span>
+								</div>
 							</li>
 						{/foreach}
 					</ul>
