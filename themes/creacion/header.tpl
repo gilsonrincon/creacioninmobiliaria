@@ -103,6 +103,7 @@
 			<p>{l s='You cannot place a new order from your country.'} <span class="bold">{$geolocation_country}</span></p>
 		</div>
 		{/if}
+		
 		<div id="container-page">
 			<!-- Header -->
 			<header>

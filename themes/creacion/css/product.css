@@ -6,13 +6,10 @@
 
 /* pb-right-column ***************************************************************************** */
 #pb-right-column {
-	float:left;
-	width:266px;
+	/*float:left;
+	width:266px;*/	width: 70%;	margin: 0px auto;
 }
-
-#pb-right-column #image-block {
-	position:relative;
-}
+#pb-right-column #image-block{    display: block;    height: 350px;    overflow: hidden;    padding: 10px;    width: 100%;}
 
 #pb-right-column #image-block img {
 	border:1px solid #cdcdcd;
@@ -531,4 +528,4 @@ ul#uploadable_files,ul#text_fields {
 
 .accessories_block div ul li .s_title_block a, .accessories_block div ul li .s_title_block span  {
 	font-weight:bold;
-}
+}/******CREACION INMOBILIARIA***/.slider-product{	width: 48%;	display: inline-block;	vertical-align: top;}.container-description-pro{	background-color: #EEEEEE;	border-bottom: 5px solid #091c24;}
