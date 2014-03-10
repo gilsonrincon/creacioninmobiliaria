@@ -57,7 +57,7 @@ class ProductoControllerCore extends FrontController
 		endforeach;
 		$smarty->assign('images', $images);
 
-
+		/*Consultamos la lista completa de features para el producto*/
 		$sql = "SELECT * FROM ps_feature_product
 				INNER JOIN ps_feature_value 
 				ON ps_feature_product.id_feature_value = ps_feature_value.id_feature_value
@@ -71,14 +71,34 @@ class ProductoControllerCore extends FrontController
 				AND ps_feature_value_lang.id_lang = 1 
 				AND ps_feature_product.id_product = ".Tools::getValue('id_product');
 		$features = DB::getInstance()->ExecuteS($sql);
+		
+		/*Inicializamos un array para pasar los features a smarty de forma mas simple*/
 		$feature_for_smarty = array();
+		
+		/*Inicializamos los valores que contendra el array*/
+		$features_for_smarty['construccion'] = "";
+		$features_for_smarty['ciudad'] = "";
+		$features_for_smarty['barrio'] = "";
+		$features_for_smarty['estrato'] = "";
+		$features_for_smarty['area_t'] = "";
+		$features_for_smarty['area_c'] = "";
+		$features_for_smarty['admin_v'] = "";
+		$features_for_smarty['niveles'] = "";
+		$features_for_smarty['habitaciones'] = "";
+		$features_for_smarty['banos_f'] = "";
+		$features_for_smarty['bano_social'] = "";
+		$features_for_smarty['util'] = "";
+		$features_for_smarty['servicio'] = "";
+		$features_for_smarty['parqueaderos'] = "";
+		$features_for_smarty['zona_verde'] = "";
+
+		/*Llenamos el array con los verdaderos valores disponibles*/
 		foreach($features as $f){
 
 		    switch ($f['name']) {
 		    	case 'Año de Construcción':
 		    		$features_for_smarty['construccion'] = $f['value'];
 		    	break;
-
 		    	case 'Ciudad':
 		    		$features_for_smarty['ciudad'] = $f['value'];
 		    	break;
@@ -141,9 +161,18 @@ class ProductoControllerCore extends FrontController
 		    }
 		}
 
+		/*Pasamos el array de features a smarty*/
+		$smarty->assign('features', $features_for_smarty);
+
+		/*Consultamos si este producto es de categoria 5*/
 		$sql = "SELECT * FROM ps_category_product WHERE id_product = ".Tools::getValue('id_product')." 
 				AND id_category = 5";
 		$category = DB::getInstance()->ExecuteS($sql);
+
+		/*
+			Si el producto esta en la categoria 5 renderizamos como destacados las propiedades de lujo
+			de otra forma renderizamos las propiedades destacadas.
+		*/
 
 		if(count($category) > 0):
 			$smarty->assign('HOOK_FEATURED',  Hook::exec('luxuryInternal'));
@@ -151,9 +180,10 @@ class ProductoControllerCore extends FrontController
 			$smarty->assign('HOOK_FEATURED',  Hook::exec('outstandingInternal'));
 		endif;
 
+		/*Hook de contacto para productos*/
 		$smarty->assign('HOOK_CONTACT',  Hook::exec('productContact'));
 
-		$smarty->assign('features', $features_for_smarty);
+
 		$this->setTemplate(_PS_THEME_DIR_.'creacion_product.tpl');
 	}
 }
