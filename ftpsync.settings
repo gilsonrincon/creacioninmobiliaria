@@ -4,9 +4,9 @@
 
 	"default": {
 
-		"host": "ftp.example.com",
-		"username": "your_login",  // or null for anonymous login
-		"password": "your_password",
+		"host": "ftp.creacioninmobiliaria.com/",
+		"username": "Creacioninmobiliaria@creacioninmobiliaria.com",  // or null for anonymous login
+		"password": "Creacioninmobiliaria2014",
 		"path": "/",
 
 		"upload_on_save": true // set *false* if you do not want to upload on save!
