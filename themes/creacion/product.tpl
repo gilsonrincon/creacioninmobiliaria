@@ -157,14 +157,10 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 </script>
 
 {include file="$tpl_dir./breadcrumb.tpl"}
-<<<<<<< HEAD
 {$HOOK_FILTER}
-<img src="{$banner}">
-=======
 <div id="img-banner">
 	<img  class="img-banners" src="{$banner}">
 </div>
->>>>>>> bcc99655aa0675df928d7270ddfb068e1eba1508
 <div id="primary_block" class="clearfix">
 
 	{if isset($adminActionDisplay) && $adminActionDisplay}
