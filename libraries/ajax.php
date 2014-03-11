@@ -4,7 +4,7 @@
 	require_once('../init.php');
 
 	//Construimos el mensaje
-$message = "
+	$message = "
 	Nombre: ".Tools::getValue('nombre')."
 	Telefono: ".Tools::getValue('telefono')."
 	Email: ".Tools::getValue('email')."
@@ -13,9 +13,9 @@ $message = "
 
 	//Enviamos el correo electronico
 	if(mail("info@creacioninmobiliaria.com", "Mensaje desde: creacioninmobiliaria.com", $message)):
-		return true;
+		echo "Se ha enviado el mensaje de forma exitosa.";
 	else:
-		return false;
+		echo "No se pudo mandar el mensaje, por favor intentelo más tarde.";
 	endif;
 	
 ?>

@@ -10,24 +10,4 @@ Este modulo muestra las propiedades con categoria de destacadas.
 <button id="send"  value="Buscar">Enviar</button>
 </form>
 
-
-<script>
-	$("#send").click(function(event) {
-		/* Acciones al dar click en el boton de enviar de este formulario */
-		$nombre = $("#nombre").val();
-		$telefono = $("#telefono").val();
-		$email = $("#email").val();
-		$comentarios = $("#comentarios").val();
-		
-		event.preventDefault()
-		return false;
-
-		//alert($nombre)
-		
-		/*$.post('http://creacioninmobiliaria.com/libraries/ajax.php', nombre: $nombre, function(data) {
-			/*optional stuff to do after success */
-			/*alert("Conseguido");
-		});*/
-
-	});
-</script>
+<script type="text/javascript" src="http://creacioninmobiliaria.com/modules/productcontact/productcontact.js"></script>
