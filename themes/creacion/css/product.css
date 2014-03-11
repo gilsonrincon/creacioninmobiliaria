@@ -9,10 +9,10 @@
 	/*float:left;
 	width:266px;*/	width: 70%;	margin: 0px auto;
 }
-#pb-right-column #image-block{    display: block;    height: 350px;    overflow: hidden;    padding: 10px;    width: 100%;}
+#pb-right-column #image-block{    display: block;    height: 350px;    overflow: hidden;    padding: 10px;    /*width: 100%;*/}
 
 #pb-right-column #image-block img {
-	border:1px solid #cdcdcd;
+	/*border:1px solid #cdcdcd;*/	height: 350px;    width: 100%;
 }
 
 #pb-right-column #image-block #view_full_size {
@@ -51,8 +51,8 @@
 
 /* miniatures */
 #pb-right-column #views_block {
-	margin-top:10px;
-	width:266px;
+	margin-top:10px;
+	/*width:266px;*/	width: 100%;
 }
 
 #thumbs_list {
@@ -528,4 +528,5 @@ ul#uploadable_files,ul#text_fields {
 
 .accessories_block div ul li .s_title_block a, .accessories_block div ul li .s_title_block span  {
 	font-weight:bold;
-}/******CREACION INMOBILIARIA***/.slider-product{	width: 48%;	display: inline-block;	vertical-align: top;}.container-description-pro{	background-color: #EEEEEE;	border-bottom: 5px solid #091c24;}
+}/******CREACION INMOBILIARIA***/.slider-product{	width: 48%;	display: inline-block;	vertical-align: top;}#container-description-pro{	background-color: #EEEEEE;	border-bottom: 5px solid #091c24;}#content-description-product{	display:inline-block;	vertical-align: top;	width: 51.6%;}#content-description-product h1, #container-form-product h2{	background: #32363a;    color: #FFFFFF;    font-size: 130%;    font-weight: normal;    padding: 10px;    text-transform: uppercase;    margin: 0px;}#content-description-product p{	padding-bottom: 5px;	color: #5D5D5D;	font-weight: bold;}
+#content-description-product h2{    color: #416179;    font-size: 105%;    padding: 15px 0px;}#content-description-product ul{	width: 49%;	display:inline-block;	vertical-align:top;	border-left:2px solid #999999;	list-style: none;	color: #5D5D5D;	font-weight: bold;}#content-description-product ul li{	border-bottom:1px solid #bfbfbf;	padding: 5px 0px;}#content-description-product ul li span{	color:#416179;	padding-left:5px;	font-weight: bold;	}#container-form-product{	width: 60%;	border: 1px solid rgba(65,97,121, 0.5);	border-top: none;}#container-form-product input, #container-form-product textarea{	width: 60%;	height: 25px;	background:#EEEEEE;	border: 1px solid #cccccc;	margin: 5px;	color: #32363a;}#container-form-product textarea{	height: 30px;}

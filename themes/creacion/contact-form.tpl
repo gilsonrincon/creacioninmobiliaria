@@ -50,16 +50,16 @@
 						Contáctenos para ofrecerle mas información sobre nuestros servicios.
 					</p>
 					
-					<input type="text" id="nombre" name="nombre" value="" placeholder="Nombre:" required />
-					<input type="email" id="mail" name="mail" value="" placeholder="E-mail:" required />
-					<input type="tel" id="tel" name="tel" value="" placeholder="Teléfono:" required />
+					<input type="text" id="nombre" name="nombre" value="" placeholder="NOMBRE:" required />
+					<input type="email" id="mail" name="mail" value="" placeholder="E-MAIL:" required />
+					<input type="tel" id="tel" name="tel" value="" placeholder="TELEFONO:" required />
 					
 					<select name="contactar" id="contactar">
 						<option value="Esta interesado en publicar su propiedad">¿Está interesado en publicar su propiedad?</option>
 						<option value="Desea obtener información adicional sobre nuestros servicios">¿Desea obtener información adicional sobre nuestros servicios?</option>
 					</select>
 
-					<textarea name="msg" id="msg" placeholder="Mensaje:"></textarea>
+					<textarea name="msg" id="msg" placeholder="MENSAJE:"></textarea>
 				
 					<input type="submit" name="submitMessage" id="submitMessage" value="{l s='Send'}" class="button_large" />
 

@@ -1,52 +1,58 @@
-{$producto.name} {*Nombre del proyecto*}
-<br>
-Descripcion:
-<br>
+<h1>{$producto.name} {*Nombre del proyecto*}</h1>
+
+<h2>DESCRIPCION</h2>
+
 {$producto.description} {*Descripción del proyecto*}
 
-codigo: {$producto.reference} {*Referencia o codigo*}
+<h2>Localización, caracteristicas y áreas:</h2>
 
-{*Ciudad*}
-Ciudad: {$features.ciudad}<br>
+<ul>
+	<li>
+		<span>CODIGO:</span> {$producto.reference} {*Referencia o codigo*}
+	</li>
+	<li>
+		<span>SECTOR O BARRIO:</span> {$features.barrio}
+	</li>
+	<li>
+		<span>CIUDAD O MUNICIPIO:</span> {$features.ciudad}
+	</li>
+	<li>
+		<span>ESTRATO:</span> {$features.estrato}
+	</li>
+	<li>
+		<span>CONSTRUCCION:</span> {$features.construccion}
+	</li>
+	<li>
+		<span>AREA TOTAL:</span> {$features.area_t}
+	</li>
+	<li>
+		<span>AREA CONSTRUIDA:</span> {$features.area_c}
+	</li>
+	<li>
+		<span>VALOR ADMINISTRACION:</span> {$features.admin_v}
+	</li>
+</ul>
+<ul>
+	<li>
+		<span>NUMERO DE NIVELES:</span> {$features.niveles}
+	</li>
+	<li>
+		<span>NUMERO DE HABITACIONES:</span> {$features.habitaciones}
+	</li>
+	<li>
+		<span>BAÑOS FAMILIARES:</span> {$features.banos_f}
+	</li>
+	<li>
+		<span>PARQUEADEROS:</span> {$features.parqueaderos}
+	</li>
+	<li>
+		<span>CUARTO UTIL:</span> {$features.util}
+	</li>
+	<li>
+		<span>ZONA VERDE:</span> {$features.zona_verde}
+	</li>
+	<li>
+		<span>BAÑO SOCIAL:</span> {$features.bano_social}
+	</li>
+</ul>
 
-{*Barrio*}
-Barrio: {$features.barrio}<br>
-
-{*Estrato*}
-Estrato: {$features.estrato}<br>
-
-{*Construccion*}
-Construccion: {$features.construccion}<br>
-
-{*Area total*}
-Area total: {$features.area_t}<br>
-
-{*Area construida*}
-Area construida: {$features.area_c}<br>
-
-{*Valor administración*}
-Valor administración: {$features.admin_v}<br>
-
-{*Numero de niveles*}
-Numero de niveles: {$features.niveles}<br>
-
-{*Numero de habitaciones*}
-Numero de habitaciones: {$features.habitaciones}<br>
-
-{*Baños familiares*}
-Baños familiares: {$features.banos_f}<br>
-
-{*Alcoba de servicio*}
-Alcoba de servicio: {$features.servicio}<br>
-
-{*Parqueaderos*}
-Parqueaderos: {$features.parqueaderos}<br>
-
-{*Util*}
-Util: {$features.util}<br>
-
-{*Zona verde*}
-Zona verde: {$features.zona_verde}<br>
-
-{*Baño social*}
-Baño social: {$features.bano_social}<br>
