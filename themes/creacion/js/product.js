@@ -428,6 +428,7 @@ function displayImage(domAAroundImgThumb, no_animation)
 	if (domAAroundImgThumb.prop('href'))
 	{
 		var new_src = domAAroundImgThumb.prop('href').replace('thickbox', 'large');
+		new_src = new_src.replace("-large_default", "");
 		var new_title = domAAroundImgThumb.prop('title');
 		var new_href = domAAroundImgThumb.prop('href');
 		if ($('#bigpic').prop('src') != new_src)
