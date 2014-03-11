@@ -32,7 +32,10 @@
 	<h4>SUSCRIBIRME A BOLETINES:</h4>
 	<div class="block_content">
 	{if isset($msg) && $msg}
-		<p class="{if $nw_error}warning_inline{else}success_inline{/if}">{$msg}</p>
+	    <div id="mensaje-suscription">
+			<p class="{if $nw_error}warning_inline{else}success_inline{/if}">{$msg}</p>
+			<a class="btCerrar">Aceptar</a>
+		</div>
 	{/if}
 		<form action="{$link->getPageLink('index')|escape:'html'}" method="post">
 			<p>
@@ -66,3 +69,12 @@
             {/if}
         });
 </script>
+{literal}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btCerrar').click(function(){
+			$('#mensaje-suscription').css('display', 'none');
+		});
+	});
+</script>
+{/literal}

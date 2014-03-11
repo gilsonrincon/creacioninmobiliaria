@@ -29,6 +29,7 @@
 	<h4 class="title_block">{l s='Newsletter' mod='blocknewsletter'}</h4>
 	<div class="block_content">
 	{if isset($msg) && $msg}
+	
 		<p class="{if $nw_error}warning_inline{else}success_inline{/if}">{$msg}</p>
 	{/if}
 		<form action="{$link->getPageLink('index')|escape:'html'}" method="post">

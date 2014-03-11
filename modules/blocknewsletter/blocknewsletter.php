@@ -490,7 +490,7 @@ class Blocknewsletter extends Module
 			else if ($this->valid)
 			{
 				$this->smarty->assign(array('color' => 'green',
-						'msg' => $this->valid,
+						'msg' => 'La suscripción ha sido enviada corréctamente.',
 						'nw_error' => false)
 				);
 			}
