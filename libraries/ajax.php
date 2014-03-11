@@ -1,21 +1,34 @@
 <?php
 	//Incluimos los archivos para poder trabajar con las herramientas que nos brinda prestashop
 	require_once('../config/config.inc.php');
-	require_once('../init.php');
+	//require_once('../init.php');
 
-	//Construimos el mensaje
-	$message = "
-	Nombre: ".Tools::getValue('nombre')."
-	Telefono: ".Tools::getValue('telefono')."
-	Email: ".Tools::getValue('email')."
-	Comentarios:
-	".Tools::getValue('comentarios');
+	//Obtenemos el emial y el mensaje o comentarios
+	$from = Tools::getValue('email');
+	$message = Tools::getValue('comentarios');
 
-	//Enviamos el correo electronico
-	if(mail("info@creacioninmobiliaria.com", "Mensaje desde: creacioninmobiliaria.com", $message)):
-		echo "Se ha enviado el mensaje de forma exitosa.";
-	else:
-		echo "No se pudo mandar el mensaje, por favor intentelo más tarde.";
-	endif;
+	//Se valida que exista una direccion de email
+	if (!($from = trim(Tools::getValue('email'))) || !Validate::isEmail($from))
+		echo "La dirección de email no es valida";
+	else if (!$message)
+		echo "El mensaje no puede ir en blanco.";
+	else if (!Validate::isCleanHtml($message))
+		echo "El mensaje no es valido.";
+	else
+	{
+		$var_list = array(
+						'{nombre}' => Tools::getValue('nombre'),
+						'{telefono}' => Tools::getValue('telefono'),
+						'{message}' => $message,
+						'{email}' =>  $from,
+					);
+
+		Mail::Send(1, 
+			'contact_producto', 
+			'Contacto a través del sitio Web',
+			$var_list, 
+			Configuration::get('PS_SHOP_EMAIL'));
+			echo "Se ha enviado su mensaje de forma exitosa";
+	}
 	
 ?>
