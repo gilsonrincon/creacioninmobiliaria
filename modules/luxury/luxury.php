@@ -61,7 +61,7 @@ class Luxury extends Module {
 		foreach ($luxury as $out):
 			$pi = Product::getCover($out['id_product']);
 			$pi = new Image($pi['id_image']);
-			$images[$out['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath()."-home.jpg";;
+			$images[$out['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath().".jpg";;
 		endforeach;
 		$smarty->assign('images', $images); 
 
@@ -93,7 +93,7 @@ class Luxury extends Module {
 		foreach ($luxury as $out):
 			$pi = Product::getCover($out['id_product']);
 			$pi = new Image($pi['id_image']);
-			$images[$out['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath()."-home.jpg";
+			$images[$out['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath().".jpg";
 			//echo $images[$out['id_product']];
 		endforeach;
 		$smarty->assign('images_l', $images); 
