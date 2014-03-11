@@ -1,0 +1,7 @@
+Hola,
+
+Su mensaje ha sido enviado correctamenta a nuestro centro de atención al Cliente. 
+
+Su mensaje:
+
+{message}

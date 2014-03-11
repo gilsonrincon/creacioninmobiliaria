@@ -52,9 +52,21 @@ class MailCore
 	 * @param bool $die
          * @param string $bcc Bcc recipient
 	 */
-	public static function Send($id_lang, $template, $subject, $template_vars, $to,
-		$to_name = null, $from = null, $from_name = null, $file_attachment = null, $mode_smtp = null,
-		$template_path = _PS_MAIL_DIR_, $die = false, $id_shop = null, $bcc = null)
+	public static function Send(
+		$id_lang, 
+		$template, 
+		$subject, 
+		$template_vars, 
+		$to,
+		$to_name = null, 
+		$from = null, 
+		$from_name = null, 
+		$file_attachment = null, 
+		$mode_smtp = null,
+		$template_path = _PS_MAIL_DIR_, 
+		$die = false, 
+		$id_shop = null, 
+		$bcc = null)
 	{
 		$configuration = Configuration::getMultiple(array(
 			'PS_SHOP_EMAIL',
