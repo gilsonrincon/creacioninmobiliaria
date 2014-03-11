@@ -36,17 +36,17 @@ class IndexControllerCore extends FrontController
 	{
 		parent::initContent();
 
-		//include_once("./libraries/Mobile_Detect.php");
+		include_once("./libraries/Mobile_Detect.php");
 
 		$this->context->smarty->assign('HOOK_HOME', Hook::exec('displayHome'));
 		$this->context->smarty->assign('HOOK_FILTER', Hook::exec('filterHome'));
 
-		//$detect = new Mobile_Detect();
-		//if(!$detect->isMobile()):
+		$detect = new Mobile_Detect();
+		if(!$detect->isMobile()):
 			$this->context->smarty->assign('HOOK_SLIDER', Hook::exec('slider'));
-		//else: 
-			//$this->context->smarty->assign('HOOK_SLIDER', '');
-		//endif;
+		else: 
+			$this->context->smarty->assign('HOOK_SLIDER', '');
+		endif;
 
 		$this->context->smarty->assign('HOOK_WELCOME', Hook::exec('welcome'));
 		$this->context->smarty->assign('HOOK_OUTSTANDING', Hook::exec('outstandingHome'));
