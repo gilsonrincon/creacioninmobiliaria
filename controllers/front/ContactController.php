@@ -52,7 +52,7 @@ class ContactControllerCore extends FrontController
 									'{nombre}' => Tools::getValue('nombre'),
 									'{telefono}' => Tools::getValue('tel'),
 									'{message}' => $message,
-									'{email}' =>  $from,
+									'{mail}' =>  $from,
 									'{contactar}' => Tools::getValue('contactar')
 								);
 
