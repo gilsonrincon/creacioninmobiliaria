@@ -61,7 +61,7 @@ class Outstanding extends Module {
 		$images = array();
 		foreach ($outstanding as $out):
 			$pi = Product::getCover($out['id_product']);
-			$pi = new Image($pi['id_image']);
+			$pi = new Image($pi);
 			$images[$out['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath().".jpg";;
 		endforeach;
 		$smarty->assign('images', $images);
@@ -94,7 +94,7 @@ class Outstanding extends Module {
 		$images = array();
 		foreach ($outstanding as $out):
 			$pi = Product::getCover($out['id_product']);
-			$pi = new Image($pi['id_image']);
+			$pi = new Image($pi);
 			$images[$out['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath().".jpg";;
 		endforeach;
 		$smarty->assign('images_o', $images);
