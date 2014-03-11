@@ -38,7 +38,7 @@
 	background-color:rgba(0,0,0,0.5);
 	border-radius:12px;
 	-moz-border-radius:12px;
-	-webkit-border-radius:12px;
+	-webkit-border-radius:12px;		display: none;
 }
 
 #pb-right-column #image-block #view_full_size .span_link img {
@@ -51,8 +51,8 @@
 
 /* miniatures */
 #pb-right-column #views_block {
-	margin-top:10px;
-	/*width:266px;*/	width: 100%;
+	/*margin-top:10px;*/
+	/*width:266px;*/	 margin: 0 auto;    text-align: center;    width: 65%;
 }
 
 #thumbs_list {
@@ -80,24 +80,24 @@
 }
 
 span.view_scroll_spacer {
-	float:left;
+	/*float:left;
 	height:16px;
-	width:21px;
+	width:21px;    */    float: left;    height: 60px;    width: 30px;    
 }
 
 #view_scroll_left,#view_scroll_right {
 	float:left;
-	margin-top:20px;
+	/*margin-top:20px;*/
 	padding:0 4px;
-	height:18px;
-	width:9px;
+	height:60px;
+	width:30px;
 	text-indent:-3000px;
-	background:url(../img/thumbs_left.gif) no-repeat center center transparent;
+	background:url(../img/left.jpg) no-repeat center center transparent;
 }
 
 #view_scroll_right {
 	margin-left:4px;
-	background-image:url(../img/thumbs_right.gif);
+	background-image:url(../img/right.jpg);
 }
 
 .resetimg {
@@ -529,4 +529,4 @@ ul#uploadable_files,ul#text_fields {
 .accessories_block div ul li .s_title_block a, .accessories_block div ul li .s_title_block span  {
 	font-weight:bold;
 }/******CREACION INMOBILIARIA***/.slider-product{	width: 48%;	display: inline-block;	vertical-align: top;}#container-description-pro{	background-color: #EEEEEE;	border-bottom: 5px solid #091c24;}#content-description-product{	display:inline-block;	vertical-align: top;	width: 51.6%;}#content-description-product h1, #container-form-product h2{	background: #32363a;    color: #FFFFFF;    font-size: 130%;    font-weight: normal;    padding: 10px;    text-transform: uppercase;    margin: 0px;}#content-description-product p{	padding-bottom: 5px;	color: #5D5D5D;	font-weight: bold;}
-#content-description-product h2{    color: #416179;    font-size: 105%;    padding: 15px 0px;}#content-description-product ul{	width: 49%;	display:inline-block;	vertical-align:top;	border-left:2px solid #999999;	list-style: none;	color: #5D5D5D;	font-weight: bold;}#content-description-product ul li{	border-bottom:1px solid #bfbfbf;	padding: 5px 0px;}#content-description-product ul li span{	color:#416179;	padding-left:5px;	font-weight: bold;	}#container-form-product{	width: 60%;	border: 1px solid rgba(65,97,121, 0.5);	border-top: none;}#container-form-product input, #container-form-product textarea{	width: 60%;	height: 25px;	background:#EEEEEE;	border: 1px solid #cccccc;	margin: 5px;	color: #32363a;}#container-form-product textarea{	height: 30px;}
+#content-description-product h2{    color: #416179;    font-size: 105%;    padding: 15px 0px;}#content-description-product ul{	width: 49%;	display:inline-block;	vertical-align:top;	border-left:2px solid #999999;	list-style: none;	color: #5D5D5D;	font-weight: bold;}#content-description-product ul li{	border-bottom:1px solid #bfbfbf;	padding: 5px 0px;}#content-description-product ul li span{	color:#416179;	padding-left:5px;	font-weight: bold;	}#container-form-product{	width: 60%;	border: 1px solid rgba(65,97,121, 0.5);	border-top: none;	display: inline-block;    vertical-align: top;    margin-top: 40px;}#container-form-product form{	display: inline-block;    vertical-align: top;    width: 60%;    padding: 5px;}#container-form-product input, #container-form-product textarea{	width: 100%;	height: 25px;	background:#EEEEEE;	border: 1px solid #cccccc;	margin: 5px 0;	color: #32363a;}#container-form-product textarea{	height: 40px;}.logo-empresa{	display: inline-block;	vertical-align: top;	margin: 10px;}#container-form-product button{	border: none;	color: #FFFFFF;	padding: 10px 20px;	background: #218dcb;}#container-module-product{	width: 38%;	display: inline-block;	vertical-align: top;	border: 1px solid #cecece;	margin-top: 40px;}#container-module-product h2{	padding: 5px;	color:#416179;	font-size: 115%;}.products-content{	background: #EEEEEE;	padding: 5px;	margin: 5px;}.products-content .content-pro{	width: 40%;	height: 90px;	display: inline-block;	vertical-align: top;	overflow: hidden;}.products-content .content-pro img{	width: 100%;	height: 90px;}.products-content .content-des {	width: 58%;	display: inline-block;	vertical-align: top;	height: 90px;	position:relative;	font-size: 105%;}.products-content .content-des{	width: 58%;	display: inline-block;	vertical-align: top;	height: 90px;	position:relative;	font-size: 105%;}.products-content .content-des  span{	color: #125098;	font-weight: bold;}.products-content .content-des p{	color: #5D5D5D;}.products-content .content-des a{	position: absolute;	right: 0;	bottom: 0;	background: #09171b;	padding:7px;	width:70%;	color:#FFFFFF;	text-align: center;	transition: all 0.5s;}.products-content .content-des a:hover{	text-decoration:none;	background: #000000;}.btn-brochure{	display: block;	padding: 10px 20px;	background: #32363a;	color: #FFFFFF !important;	text-align: center;	width: 30%;	margin-top: 20px;	transition: all 0.5s;}.btn-brochure:hover{	background: #000000;	text-decoration:none;}/******* MOVIL****/@media screen and (max-width:600px){		#pb-right-column {	    margin: 0 auto;	    width: 100%;	}		#container-description-pro{		background: none;	}			.slider-product, #content-description-product ul{	    width: 100%;	    font-size: 120%;	}		#pb-right-column #views_block, #container-module-product {	    display:none;	}		#content-description-product h1, #container-form-product h2{		text-align: center;		background: none;		color: #5D5D5D;	}			#content-description-product h2{		font-size: 120%;	}		#content-description-product, #container-form-product, #container-form-product form{		margin: 0px auto;		display: block;		width: 95%;	}		.btn-brochure{		width: 50%;		margin:20px auto 0 auto; 	}	#container-form-product{		margin-top: 20px;		border: none;	}		#container-form-product button {	    display: block;	    font-size: 120%;	    margin: 20px auto;	    padding: 15px 20px;	    width: 50%	}	.logo-empresa{		display: none;	}		#pb-right-column #image-block, #pb-right-column #image-block img{		height: 250px;	}}@media screen and (min-width:601px) and (max-width:900px){		#pb-right-column, #content-description-product {	    margin: 0 auto;	    width: 100%;	}		.slider-product {	    width: 100%;	}		#pb-right-column #views_block{		width: 50%;	}	#content-description-product h1{		text-align: center;	}		.logo-empresa{		display: none;	}		#container-form-product form{		width: 95%;	}	}	

@@ -3,24 +3,22 @@ Este modulo muestra las propiedades con categoria de destacadas.
 Por ahora falta colocar la imagen
 **}
 
-<div id="container-module-home">
-	<h2>PROYECTOS DESTACADOS</h2>
-	<div class="fondo-product-creation">
+<div id="container-module-product">
+	<h2>proyectos destacados</h2>
+	
 		{foreach from=$outstanding item=o}
-			<div class="product-creacion">
-				<a href="http://creacioninmobiliaria.com/index.php?id_product={$o.id_product}&controller=product&id_lang=1">
+			<div class="products-content">
+				<a class="content-pro" href="http://creacioninmobiliaria.com/index.php?id_product={$o.id_product}&controller=product&id_lang=1">
 					<img src="{$images_o[$o.id_product]}">
-					<div class="name-product">
-					{$o.name} {*Esta variable guarda el nombre de la propiedad*}
-					</div>
 				</a>
-				<div class="description-short">
+				<div class="content-des" >	
+				     <span>{$o.name} {*Esta variable guarda el nombre de la propiedad*}</span>
 					{$o.description_short} {*Esta variable guarda la descripción corta del producto*}
 					<a href="http://creacioninmobiliaria.com/index.php?id_product={$o.id_product}&controller=product&id_lang=1">
-						Ver más
+						VER MÁS
 					</a>
-				</div>
+				</div>	
+				
 			</div>
 		{/foreach}
-	</div>
 </div>
