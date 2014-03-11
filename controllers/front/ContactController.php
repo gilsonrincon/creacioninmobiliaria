@@ -57,7 +57,7 @@ class ContactControllerCore extends FrontController
 								);
 
 					Mail::Send($this->context->language->id, 
-						'contact_form', 
+						'contact_modificado', 
 						'Contacto a través del sitio Web',
 						$var_list, 
 						Configuration::get('PS_SHOP_EMAIL'));
