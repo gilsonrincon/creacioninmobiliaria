@@ -30,6 +30,8 @@
 	</li>
 </ul>
 
-{foreach from=$files item=item}
-	<a class="btn-brochure" href="{$item}" target="_blank">DESCARGAR BROCHURE</a>
-{/foreach}
+<ul>
+	{foreach from=$attachments item=attachment}
+		<li><a href="{$link->getPageLink('attachment', true, NULL, "id_attachment={$attachment.id_attachment}")|escape:'html'}">Descargar Broshure</a><br />{$attachment.description|escape:'htmlall':'UTF-8'}</li>
+	{/foreach}
+</ul>

@@ -237,6 +237,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				</ul>
 				-->
 			</div>
+
 			<div id="content-description-product">
 				{$HOOK_PRODUCT}
 			</div>
