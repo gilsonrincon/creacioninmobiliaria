@@ -9,9 +9,9 @@
 *.project
 *.sublime-project
 *.sublime-workspace
-modules/*/*.xml
-modules/filter/*.xml
-modules/luxury/*.xml
+/modules/*/*.xml
+/modules/filter/*.xml
+/modules/luxury/*.xml
 robots.txt
 cache/cachefs/*
 !cache/cachefs/index.php
