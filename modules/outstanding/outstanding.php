@@ -49,6 +49,7 @@ class Outstanding extends Module {
 				WHERE ps_product.id_product = ps_product_lang.id_product
 				AND ps_product.id_product = ps_category_product.id_product 
 				AND ps_product_lang.id_lang = 1 
+				AND ps_product.visibility = 'both'
 				AND ps_category_product.id_category = 10 ORDER BY RAND() LIMIT 2";
 
 		//Ejecutamos la consulta y almacenamos en resultado en una variable y luego a una smarty
@@ -82,6 +83,7 @@ class Outstanding extends Module {
 				WHERE ps_product.id_product = ps_product_lang.id_product
 				AND ps_product.id_product = ps_category_product.id_product 
 				AND ps_product_lang.id_lang = 1 
+				AND ps_product.visibility = 'both'
 				AND ps_category_product.id_category = 10 ORDER BY RAND() LIMIT 2";
 
 		//Ejecutamos la consulta y almacenamos en resultado en una variable y luego a una smarty
