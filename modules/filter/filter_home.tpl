@@ -12,6 +12,23 @@ corresponde y si es necesario algun otro ajusto lo hare cuidado de no dañar
 lo que se haya hecho en el frontend.
 
 **}
+
+{literal}
+	<script type="text/javascript">
+		/***VERSION MOVIL***/
+		$(document).ready(function() {
+			$(window).resize(function(event) {
+				var ancho= $(window).width();
+				if (ancho <= 600){
+					$('#container-search-mobile .search-filtre-mobile').append($('#container-filterhome'));
+				}
+				
+			});
+		});
+	</script>
+{/literal}
+
+
 <div id="container-filterhome">
 	
 	<div class="filter_home">

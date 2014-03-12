@@ -66,7 +66,7 @@
 	{/foreach}
 {/if}
 		{$HOOK_HEADER}
-		
+		{literal}
 		<script type="text/javascript">
 				$(document).ready(function(){
 					
@@ -79,16 +79,18 @@
 					
 					$('.menu-movil').click (function(){
 						$('#navegation nav').slideToggle('slow');
+						$('#container-search-mobile').fadeOut('slow');
 					});
 					
 					$('.search-movil').click (function(){
-						$('#navegation #search_block_top').slideToggle('slow');
+						$('#container-search-mobile').slideToggle('slow');
 						/*$('#container-filterhome').slideToggle('slow');*/
+						$('#navegation nav').fadeOut('slow');
 					});
 					
 				});
 		</script>	
-			
+		{/literal}	
 		{literal}
 		<script type="text/javascript">var switchTo5x=true;</script>
 		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
@@ -99,7 +101,12 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$(window).resize(function(event) {
-					console.log($(window).width());
+					var ancho= $(window).width();
+					if (ancho <= 600){
+						$('#container-search-mobile .search-m').append($('#search_block_top'));
+				
+					}
+					
 				});
 			});
 		</script>
@@ -129,6 +136,10 @@
 						<img class="logo" src="img/logo2.png" alt="Creacion Inmobiliaria"/>
 					</a>
 						
+				</div>
+				<div id="container-search-mobile">
+					<div class="search-m"></div>
+					<div class="search-filtre-mobile"></div>
 				</div>
 				
 				<div id="navegation">

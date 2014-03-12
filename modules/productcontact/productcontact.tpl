@@ -10,7 +10,7 @@ Este modulo muestra las propiedades con categoria de destacadas.
 		<input id="telefono" type="text" name="telefono" placeholder="TELEFONO:">
 		<input id="email" type="text" name="email" placeholder="E-MAIL:">
 		<textarea id="comentarios" name="comentarios" placeholder="COMENTARIOS:"></textarea>
-		<button id="send" data-type="zoomin"  value="Buscar">CONTACTAR</button>
+		<button id="send" return="false" data-type="zoomin"  value="Buscar">CONTACTAR</button>
 	</form>
 	<img class="logo-empresa" src="img/creacion/img-contact-product.png" />
 </div>
