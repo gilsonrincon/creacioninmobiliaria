@@ -41,7 +41,7 @@
 			<input type="hidden" name="controller" value="search" />
 			<input type="hidden" name="orderby" value="position" />
 			<input type="hidden" name="orderway" value="desc" />
-			<input class="search_query" type="text" id="search_query_top" name="search_query" value="{$search_query|escape:'htmlall':'UTF-8'|stripslashes}" />
+			<input class="search_query" type="text" id="search_query_top" placeholder="Búsqueda por código o palabra clave" name="search_query" value="{$search_query|escape:'htmlall':'UTF-8'|stripslashes}" />
 			<input type="submit" name="submit_search" value="{l s='Search' mod='blocksearch'}" class="button" />
 		</p>
 	</form>
