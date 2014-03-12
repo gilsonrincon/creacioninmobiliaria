@@ -84,7 +84,6 @@
 					
 					$('.search-movil').click (function(){
 						$('#container-search-mobile').slideToggle('slow');
-						/*$('#container-filterhome').slideToggle('slow');*/
 						$('#navegation nav').fadeOut('slow');
 					});
 					
@@ -100,11 +99,14 @@
 		{literal}
 		<script type="text/javascript">
 			$(document).ready(function() {
-				$(window).resize(function(event) {
+				$(window).resize(function() {
 					var ancho= $(window).width();
-					if (ancho <= 600){
-						$('#container-search-mobile .search-m').append($('#search_block_top'));
-				
+					
+					if (ancho<766){
+						console.log($('#search_block_top').length);
+						$('#container-search-mobile .search-mobile').append($('#search_block_top'));
+					}else{
+					
 					}
 					
 				});
@@ -138,7 +140,7 @@
 						
 				</div>
 				<div id="container-search-mobile">
-					<div class="search-m"></div>
+					<div class="search-mobile"></div>
 					<div class="search-filtre-mobile"></div>
 				</div>
 				
