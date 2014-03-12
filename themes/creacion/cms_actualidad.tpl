@@ -1,9 +1,10 @@
 {if ($content_only == 0)}
 	{include file="$tpl_dir./breadcrumb.tpl"}
 {/if}
-<div id="img-banner">
-	<img class="img-banners" src="img/creacion/actualidad.jpg" alt="Actualidad creacion inmobiliaria"/>
-</div>
+
+<p id="img-banner">
+	<img class="img-banners" src="img/creacion/actualidad.jpg" alt="Actualidad creacion inmobiliaria" title="Actualidad"/>
+</p>
 <div id="container-cms">
 	<h1 class="title-cms tittle-not-mobile">ACTUALIDAD</h1>
 	<div class="col-izquierda-actualidad">
@@ -99,8 +100,6 @@
 			</script>
 			{/literal}
 			
-			<div class="fb-like-box" data-href="http://www.facebook.com/FacebookDevelopers" style="margin-top: 20px;" data-width="216"  data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div>
-			
-			
+			<div class="fb-like-box" data-href="https://www.facebook.com/FacebookDevelopers" style="margin-top: 20px;" data-width="216"  data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="true"></div>
 	</div>
 </div>

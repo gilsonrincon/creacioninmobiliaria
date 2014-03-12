@@ -34,7 +34,7 @@
 	{if isset($msg) && $msg}
 	    <div id="mensaje-suscription">
 			<p class="{if $nw_error}warning_inline{else}success_inline{/if}">{$msg}</p>
-			<a class="btCerrar">Aceptar</a>
+			<a class="btCerrar">Cerrar</a>
 		</div>
 	{/if}
 		<form action="{$link->getPageLink('index')|escape:'html'}" method="post">

@@ -3,9 +3,9 @@
 {include file="$tpl_dir./breadcrumb.tpl"}
 
 
-<div id="img-banner">
-	<img class="img-banners" alt="banner empresa" src="http://creacioninmobiliaria.com/img/cms/empresa.jpg" title="banner contacto">
-</div>
+<p id="img-banner">
+	<img class="img-banners" alt="banner empresa" src="img/creacion/contacto.jpg" title="banner contacto">
+</p>
 <div id="container-title-contact" style="width:80%; height:50px; margin: 0px auto; position: relative;">
 	<h1 class="title-cms">CONTACTO</h1>
 </div>

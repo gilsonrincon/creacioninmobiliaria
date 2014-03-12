@@ -14,9 +14,11 @@ Este modulo muestra las propiedades con categoria de destacadas.
 	</form>
 	<img class="logo-empresa" src="img/creacion/img-contact-product.png" />
 </div>
-<div id="popup">
-	<a href="#" class="close">Cerrar</a>
-	<div id="popup-msg">
+<div class="overlay-container">
+	<div id="popup">
+		<a href="#" class="close">Cerrar</a>
+		<div id="popup-msg">
+		</div>
 	</div>
 </div>
 <script type="text/javascript" src="http://creacioninmobiliaria.com/modules/productcontact/productcontact.js"></script>
