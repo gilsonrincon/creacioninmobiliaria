@@ -255,8 +255,14 @@ class Filter extends Module {
 		endforeach;
 
 		foreach ($products as $key => $value) {
-			if($value['price'] < $dp_min || $value['price'] > $dp_max)
+			if(Tools::getValue('price_range') == "10"):
+				if($value['price'] < 2000000000):
 					unset($products[$key]);
+				endif;
+			else:
+				if($value['price'] < $dp_min || $value['price'] > $dp_max)
+					unset($products[$key]);
+			endif;
 		}
 
 

@@ -42,9 +42,10 @@ class IndexControllerCore extends FrontController
 		$this->context->smarty->assign('HOOK_FILTER', Hook::exec('filterHome'));
 
 		$detect = new Mobile_Detect();
-		if(!$detect->isMobile()):
+		if($detect->isTablet() || !$detect->isMobile()):
 			$this->context->smarty->assign('HOOK_SLIDER', Hook::exec('slider'));
 		else: 
+
 			$this->context->smarty->assign('HOOK_SLIDER', '');
 		endif;
 

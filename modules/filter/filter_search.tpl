@@ -19,7 +19,7 @@ $products_description[$p.id_product] = Descripcion del producto
 		    <a href="http://creacioninmobiliaria.com/index.php?id_product={$p.id_product}&controller=product&id_lang=1">
 				<img src="{$products_images[$p.id_product]}"><br>
 			</a>
-			<p><span>Nombre:</span> {$products_name[$p.id_product]|truncate:20:'...'}</p>
+			<p>{$products_name[$p.id_product]|truncate:30:'...'}</p>
 			<hr/>
 			<p><span>Código:</span> {$p.reference} </p>
 			{if $category_name != "Proyectos"}
