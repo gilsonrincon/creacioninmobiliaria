@@ -10,52 +10,68 @@
 	<li>
 		<span>PRECIO:</span><span id="displayprice"></span>
 	</li>
-	<li>
+	{if $producto.reference != ""}<li>
 		<span>CODIGO:</span> {$producto.reference} {*Referencia o codigo*}
 	</li>
-	<li>
+	{/if}
+	{if $features.barrio != ""}<li>
 		<span>SECTOR O BARRIO:</span> {$features.barrio}
 	</li>
-	<li>
+	{/if}
+	{if $features.ciudad != ""}<li>
 		<span>CIUDAD O MUNICIPIO:</span> {$features.ciudad}
 	</li>
-	<li>
+	{/if}
+	{if $features.estrato != ""}<li>
 		<span>ESTRATO:</span> {$features.estrato}
 	</li>
-	<li>
+	{/if}
+	{if $features.construccion != ""}<li>
 		<span>CONSTRUCCION:</span> {$features.construccion}
 	</li>
-	<li>
+	{/if}
+	{if $features.area_t != ""}<li>
 		<span>AREA TOTAL:</span> {$features.area_t}
 	</li>
-	<li>
+	{/if}
+	{if $features.area_c != ""}<li>
 		<span>AREA CONSTRUIDA:</span> {$features.area_c}
 	</li>
-	<li>
+	{/if}
+	{if $features.admin_v != ""}<li>
 		<span>VALOR ADMINISTRACION:</span> {$features.admin_v}
 	</li>
+	{/if}
 </ul>
 <ul>
-	<li>
+	{if $features.niveles != ""}<li>
 		<span>NUMERO DE NIVELES:</span> {$features.niveles}
 	</li>
-	<li>
+	{/if}
+	{if $features.habitaciones != ""}<li>
 		<span>NUMERO DE HABITACIONES:</span> {$features.habitaciones}
 	</li>
+	{/if}
+
 	<li>
 		<span>BAÑOS FAMILIARES:</span> {$features.banos_f}
 	</li>
-	<li>
+
+	{if $features.parqueaderos != ""}<li>
 		<span>PARQUEADEROS:</span> {$features.parqueaderos}
 	</li>
-	<li>
+	{/if}
+	{if $features.util != ""}<li>
 		<span>CUARTO UTIL:</span> {$features.util}
 	</li>
-	<li>
+	{/if}
+	{if $features.zona_verde != ""}<li>
 		<span>ZONA VERDE:</span> {$features.zona_verde}
 	</li>
-	<li>
+	{/if}
+	{if $features.bano_social != ""}<li>
 		<span>BAÑO SOCIAL:</span> {$features.bano_social}
 	</li>
+	{/if}
 </ul>
 
