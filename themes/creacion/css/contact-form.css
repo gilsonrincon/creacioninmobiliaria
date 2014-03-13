@@ -6,6 +6,8 @@
 		background-image: url(../img/fondo-contact.jpg);
 		text-align: left;
 		position: relative;
+		margin: 0;
+		border: none;
 	}
 		/*#contact  h3 {
 			margin:0 0 15px 0;
@@ -56,15 +58,20 @@
 /******CREACION INMOBILIARIA*******/
 
 #container-page-contact input, #container-page-contact textarea, #container-page-contact select{
-	border: 1px solid #CCCCCC;
+	border: none;
     color: #666666;
     font-size: 12px;
     height: 40px;
-    padding: 0 3px;
+    padding: 0 6px;
     width: 60%;
     margin: 5px 0px;
-}
 
+}
+#container-page-contact select{
+	width: 61%;
+	padding: 5px;
+	
+}
 #container-page-contact textarea{
 	height: 70px;
 }
@@ -88,8 +95,9 @@
 .text-example-contact{
 	width: 60%;
 	font-size: 135%;
-	padding:10px;
+	padding:20px;
 	color:#EEEEEE;
+	line-height: 20px;
 }
 
 .logo-contact{
@@ -98,6 +106,9 @@
 	top: 15%;
 }
 
+#container-page-contact{
+	margin-bottom:10px;
+}
 
 /****VERSION MOVIL CI*****/
 @media screen and (max-width:600px) {

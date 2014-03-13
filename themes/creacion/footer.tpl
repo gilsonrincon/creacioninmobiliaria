@@ -11,7 +11,8 @@
 			<footer>
 				{$HOOK_LEFT_COLUMN}
 				<a class="mail-footer"  href="mailto://info@creacioninmobiliaria.com">INFO@CREACIONINMOBILIARIA.COM</a>
-				<a  class="company-footer"href="http://swm.com.co" rel="nofollow" target="_blank">STUDIOWEB &  <span style="color:#e4af2f;">MARKETING</span></a>
+				
+				<a class="company-footer"href="http://swm.com.co" rel="nofollow" target="_blank"><span style="color:#FFFFFF; ">Desarrollado por:</span>  STUDIOWEB &  <span style="color:#e4af2f;">MARKETING</span></a>
 				
 			</footer>
 		</div>

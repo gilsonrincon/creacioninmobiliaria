@@ -155,9 +155,9 @@
 				
 			<div id="follow">
 				<span>SIGUENOS :</span>
-				<a href="#"><img src="img/creacion/facebook.png" alt="Creacion Inmobiliaria en facebook" /></a>
-				<a href="#"><img src="img/creacion/twitter.png" alt="Creacion Inmobiliaria en twitter" /></a>
-				<a href="#"><img src="img/creacion/google.png" alt="Creacion Inmobiliaria en google plus" /></a>
+				<a href="https://www.facebook.com/pages/Creacion-Inmobiliaria/281604968665778?fref=ts" target="_blank" rel="nofollow"><img src="img/creacion/facebook.png" alt="Creacion Inmobiliaria en facebook" /></a>
+				<a href="https://twitter.com/creinmobiliaria" target="_blank" rel="nofollow"><img src="img/creacion/twitter.png" alt="Creacion Inmobiliaria en twitter" /></a>
+				<a href="http://instagram.com/Creacioninmobiliariacolombia" target="_blank" rel="nofollow"><img src="img/creacion/instagram.png" alt="Creacion Inmobiliaria en Instagram" /></a>
 			</div>
 			
 		

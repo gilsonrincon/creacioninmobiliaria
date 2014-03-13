@@ -73,7 +73,7 @@ lo que se haya hecho en el frontend.
 		</select>
 		
 		<select class="new-select" name="status">
-			<option value="0">Estado</option>
+			<option value="0">ESTADO:</option>
 			{foreach from=$status item=c}
 				<option value={$c.id_category}>{$c.name}</option>
 			{/foreach}

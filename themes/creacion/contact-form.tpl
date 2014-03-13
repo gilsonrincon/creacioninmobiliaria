@@ -10,12 +10,12 @@
 	<h1 class="title-cms">CONTACTO</h1>
 </div>
 <div id="container-page-contact" class="mobile-not">
-	<h2 class="title-contact">CONTACTENOS<span>CREACION INMOBILIARIA</span></h2>
+	<h2 class="title-contact" style="margin-left: 5px;">CONTACTENOS<span style="padding-left: 0;">CREACIÓN INMOBILIARIA</span></h2>
 	<div class="content-info-contact" >
 		 <h3>¿ NECESITA ASESORIA ?</h3>
 		 <p class="line"> </p>
-		 <p>Registre sus datos y lo contactaremos para ofrecerle asesoría personalizada. </p>
-		 <p>311 331 8139 - 311 331 8139</p>
+		 <p style="line-height:20px;">Contáctenos para ofrecerle mas información sobre <br/> nuestros servicios.</p>
+		 <p>311 331 8139 - 310 842 4966</p>
 		 <ul>
 		 	<li>Cra 25 N 1A Sur - 155</li>
 		 	<li>Edificio platinum superior - El poblado</li>
@@ -47,7 +47,7 @@
 				<fieldset>
 					<img class="logo-contact" src="img/creacion/logo-contact.png" />
 					<p class="text-example-contact">
-						Contáctenos para ofrecerle mas información sobre nuestros servicios.
+						Registre sus datos y lo contactaremos para <br/> ofrecerle asesoría personalizada. 
 					</p>
 					
 					<input type="text" id="nombre" name="nombre" value="" placeholder="NOMBRE:" required />
@@ -55,8 +55,8 @@
 					<input type="tel" id="tel" name="tel" value="" placeholder="TELEFONO:" required />
 					
 					<select name="contactar" id="contactar">
-						<option value="Esta interesado en publicar su propiedad">¿Está interesado en publicar su propiedad?</option>
-						<option value="Desea obtener información adicional sobre nuestros servicios">¿Desea obtener información adicional sobre nuestros servicios?</option>
+						<option value="Esta interesado en publicar su propiedad">¿ESTÁ INTERESADO EN PUBLICAR SU PROPIEDAD? </option>
+						<option value="Desea obtener información adicional sobre nuestros servicios">¿DESEA OBTEBER INFORMACION ADICIONAL SOBRE NUESTROS SERVICIOS?</option>
 					</select>
 
 					<textarea name="msg" id="msg" placeholder="MENSAJE:"></textarea>
