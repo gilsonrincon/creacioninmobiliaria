@@ -53,6 +53,15 @@ lo que se haya hecho en el frontend.
 			
 		<select name="price_range">
 			<option value="Rango de precios">RANGO DE PRECIOS</option>
+			<option value="1">200.000.000-400.000.000</option>
+			<option value="2">400.000.000-600.000.000</option>
+			<option value="3">600.000.000-800.000.000</option>
+			<option value="4">800.000.000-1000.000.000</option>
+			<option value="5">1000.000.000-1200.000.000</option>
+			<option value="6">1200.000.000-1400.000.000</option>
+			<option value="7">1400.000.000-1600.000.000</option>
+			<option value="8">1600.000.000-1800.000.000</option>
+			<option value="9">1800.000.000-2000.000.000</option>
 		</select>
 		
 		<select class="price-select" name="area">
@@ -63,10 +72,11 @@ lo que se haya hecho en el frontend.
 		</select>
 		
 		<select class="new-select" name="status">
+			<option value="0">Estado</option>
 			{foreach from=$status item=c}
 				<option value={$c.id_category}>{$c.name}</option>
 			{/foreach}
-			<option value="0">Nuevos y usados</option>
+			
 		</select>
 		<input type="hidden" name="maincategory" value="{$category}">
 

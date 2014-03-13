@@ -241,6 +241,9 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 			<div id="content-description-product">
 				{$HOOK_PRODUCT}
 			</div>
+			<script>
+				$("#displayprice").text("{convertPrice price=$productPrice}");
+			</script>
 		</div>
 		{$HOOK_CONTACT}
 		{$HOOK_FEATURED}

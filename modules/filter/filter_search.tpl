@@ -19,13 +19,16 @@ $products_description[$p.id_product] = Descripcion del producto
 		    <a href="http://creacioninmobiliaria.com/index.php?id_product={$p.id_product}&controller=product&id_lang=1">
 				<img src="{$products_images[$p.id_product]}"><br>
 			</a>
-			<p><span>Código:</span> {$p.reference} </p>
+			<p><span>Nombre:</span> {$products_name[$p.id_product]|truncate:20:'...'}</p>
 			<hr/>
-			<p><span>Precio:</span> <span style="color:#218dcb;"> $ {$p.price}</span></p> 
-			<p><span>Area:</span><span style="color:#218dcb;"> {$products_areas[$p.id_product]}</span></p>
+			<p><span>Código:</span> {$p.reference} </p>
+			{if $category_name != "Proyectos"}
+				<p><span>Precio:</span> <span style="color:#218dcb;"> {convertPrice price=$p.price}</span></p>
+				<p><span>Area:</span><span style="color:#218dcb;"> {$products_areas[$p.id_product]}</span></p>
+			{/if}
 			<p><span>Sector:</span><span style="color:#218dcb;"> {$products_sector[$p.id_product]}</span></p>
 			<div id="description">
-				<span>Descripción:</span>{$products_description[$p.id_product]}
+				<span>Descripción:</span>{$products_description[$p.id_product]|truncate:50:'...'}
 			</div>
 			
 			<a class="btn-plus" href="http://creacioninmobiliaria.com/index.php?id_product={$p.id_product}&controller=product&id_lang=1">

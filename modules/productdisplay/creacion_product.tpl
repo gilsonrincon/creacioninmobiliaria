@@ -8,6 +8,9 @@
 
 <ul>
 	<li>
+		<span>PRECIO:</span><span id="displayprice"></span>
+	</li>
+	<li>
 		<span>CODIGO:</span> {$producto.reference} {*Referencia o codigo*}
 	</li>
 	<li>

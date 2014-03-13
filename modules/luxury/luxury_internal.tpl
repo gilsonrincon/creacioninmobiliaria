@@ -11,8 +11,8 @@ Este modulo muestra las propiedades con categoria de destacadas.
 					<img src="{$images_l[$o.id_product]}">
 				</a>	
 				<div class="content-des" >
-					<span>{$o.name} {*Esta variable guarda el nombre de la propiedad*} </span>
-					{$o.description_short} {*Esta variable guarda la descripción corta del producto*}
+					<span>{$o.name|truncate:20:'...'} {*Esta variable guarda el nombre de la propiedad*} </span>
+					{$o.description_short|truncate:50:'...'} {*Esta variable guarda la descripción corta del producto*}
 					<a href="http://creacioninmobiliaria.com/index.php?id_product={$o.id_product}&controller=product&id_lang=1">
 					VER MÁS
 					</a>

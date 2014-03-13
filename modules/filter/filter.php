@@ -180,12 +180,52 @@ class Filter extends Module {
 		if(Tools::getValue('new') > 0)
 			array_push($filters, Tools::getValue('new'));
 
-		if(Tools::getValue('price_range') > 0)
-			array_push($filters, Tools::getValue('price_range'));
-
 		if(Tools::getValue('maincategory') > 0)
 			array_push($filters, Tools::getValue('maincategory'));
 
+		//Organizamos para filtrar el precio segun el rango
+		$dp_min = 0;
+		$dp_max = 0;
+		if(Tools::getValue('price_range') != "Rango de precios"):
+			switch (Tools::getValue('price_range')) {
+				case '1':
+					$dp_min = 200000000;
+					$dp_max = 400000000; 
+					break;
+				case '2':
+					$dp_min = 400000000;
+					$dp_max = 500000000; 
+					break;
+				case '3':
+					$dp_min = 600000000;
+					$dp_max = 800000000; 
+					break;
+				case '4':
+					$dp_min = 800000000;
+					$dp_max = 1000000000; 
+					break;
+				case '5':
+					$dp_min = 1000000000;
+					$dp_max = 1200000000; 
+					break;
+				case '6':
+					$dp_min = 1200000000;
+					$dp_max = 1400000000; 
+					break;
+				case '7':
+					$dp_min = 1400000000;
+					$dp_max = 1600000000; 
+					break;
+				case '8':
+					$dp_min = 1600000000;
+					$dp_max = 1800000000; 
+					break;
+				case '9':
+					$dp_min = 1800000000;
+					$dp_max = 2000000000; 
+					break;
+			}
+		endif;
 
 		//Seleccionamos todos los productos de la base de datos para luego filtrar los que
 		//cumplan con las categorias del filtro
@@ -213,6 +253,14 @@ class Filter extends Module {
 				endif;
 			endforeach;
 		endforeach;
+
+		foreach ($products as $key => $value) {
+			if($value['price'] < $dp_min || $value['price'] > $dp_max)
+					unset($products[$key]);
+		}
+
+
+
 		$smarty->assign('products_count', count($products));
 		//Organizamos la paginación
 		$pagination = array();
@@ -250,6 +298,7 @@ class Filter extends Module {
 			endforeach;
 		endif;
 		
+		$products_name = array();
 		$products_description = array();
 		$products_sector = array();
 		$products_images = array();
@@ -257,9 +306,10 @@ class Filter extends Module {
 
 		foreach ($products as $p):
 			/*Obtenemos la descripcion corta*/
-			$sql = "SELECT description_short FROM ps_product_lang WHERE id_lang = 1 AND id_product = $p[id_product]";
+			$sql = "SELECT name, description_short FROM ps_product_lang WHERE id_lang = 1 AND id_product = $p[id_product]";
 			$result = DB::getInstance()->ExecuteS($sql);
 			$products_description[$p['id_product']] = $result[0]['description_short'];
+			$products_name[$p['id_product']] = $result[0]['name'];
 
 			/*Obtenemos el sector del producto*/
 			$sql = "SELECT ps_category_lang.name FROM ps_category 
@@ -294,6 +344,8 @@ class Filter extends Module {
 			$products_images[$p['id_product']] = _PS_BASE_URL_._THEME_PROD_DIR_.$pi->getExistingImgPath().".jpg";;
 		endforeach;
 		
+		$smarty->assign('products_name', $products_name);
+		$smarty->assign('category_name', "all");
 		$smarty->assign('products', $products);
 		$smarty->assign('products_sector', $products_sector);
 		$smarty->assign('products_areas', $products_areas);
@@ -341,6 +393,7 @@ class Filter extends Module {
 			endforeach;
 		endforeach;
 		
+		$products_name = array();
 		$products_description = array();
 		$products_areas = array();
 		$products_sector = array();
@@ -348,9 +401,10 @@ class Filter extends Module {
 
 		foreach ($products as $p):
 			/*Obtenemos la descripcion corta*/
-			$sql = "SELECT description_short FROM ps_product_lang WHERE id_lang = 1 AND id_product = $p[id_product]";
+			$sql = "SELECT name, description_short FROM ps_product_lang WHERE id_lang = 1 AND id_product = $p[id_product]";
 			$result = DB::getInstance()->ExecuteS($sql);
 			$products_description[$p['id_product']] = $result[0]['description_short'];
+			$products_name[$p['id_product']] = $result[0]['name'];
 
 			/*Obtenemos el sector del producto*/
 			$sql = "SELECT ps_category_lang.name FROM ps_category 
@@ -421,7 +475,13 @@ class Filter extends Module {
 				endif;
 			endforeach;
 		endif;
+		if(Tools::getValue('category') == 5):
+			$smarty->assign('category_name', "Propiedades");
+		else:
+			$smarty->assign('category_name', "Proyectos");
+		endif;
 
+		$smarty->assign('products_name', $products_name);
 		$smarty->assign('products', $products);
 		$smarty->assign('products_sector', $products_sector);
 		$smarty->assign('products_areas', $products_areas);
