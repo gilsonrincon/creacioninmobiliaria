@@ -135,6 +135,7 @@
 	
 	#container-page-contact input, #container-page-contact textarea, #container-page-contact select {
 	    width: 85%;
+	    border: 1px solid #5D5D5D;
 	}
 	
 	.text-example-contact {
@@ -196,6 +197,7 @@
 	
 	#container-page-contact input, #container-page-contact textarea, #container-page-contact select {
 	    width: 75%;
+	    border: 1px solid #5D5D5D;
 	}
 	
 	.text-example-contact {

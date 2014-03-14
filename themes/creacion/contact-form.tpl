@@ -72,7 +72,7 @@
 <div id="mapa" style="width: 100%; height: 400px"></div>
 {literal}
 <script>
-	var mapa = new google.maps.LatLng(37.38264, -5.996295);	//Coordenadas
+	var mapa = new google.maps.LatLng(6.1963627, -75.5585778);	//Coordenadas
 	var opciones = {
 	    zoom : 13,
 	    center: mapa,
@@ -83,9 +83,12 @@
 
 	// Creamos un marcador y lo posicionamos en el mapa
 	var marcador = new google.maps.Marker({
-	  position: new google.maps.LatLng(37.38264, -5.996295), //Coordenadas
+	  position: new google.maps.LatLng(6.1963627, -75.5585778), //Coordenadas
 	  map: map,
 	  icon: "http://creacioninmobiliaria.com/img/maps.png"
 	});
 </script>
+
 {/literal}
+
+{$HOOK_FILTER}

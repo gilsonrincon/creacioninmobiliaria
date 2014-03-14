@@ -85,6 +85,14 @@
 					$('.search-movil').click (function(){
 						$('#container-search-mobile').slideToggle('slow');
 						$('#navegation nav').fadeOut('slow');
+						var ancho= $(window).width();
+						if (ancho <= 600){
+							
+							$('#container-search-mobile .search-mobile').append($('#search_block_top').css('display','block'));
+							$('#container-search-mobile .search-filtre-mobile').append($('#filter'));
+							$('#container-search-mobile .search-filtre-mobile').append($('#container-filterhome'));
+							
+						}
 					});
 					
 				});
@@ -94,24 +102,6 @@
 		<script type="text/javascript">var switchTo5x=true;</script>
 		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 		<script type="text/javascript">stLight.options({publisher: "1f12f6ec-c094-4a61-83b2-dba463eb66cc", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-		{/literal}
-
-		{literal}
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$(window).resize(function() {
-					var ancho= $(window).width();
-					
-					if (ancho<766){
-						console.log($('#search_block_top').length);
-						$('#container-search-mobile .search-mobile').append($('#search_block_top'));
-					}else{
-					
-					}
-					
-				});
-			});
-		</script>
 		{/literal}
 	</head>
 	

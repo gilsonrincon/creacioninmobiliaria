@@ -113,7 +113,7 @@ class ContactControllerCore extends FrontController
 			'contacts' => Contact::getContacts($this->context->language->id),
 			'message' => html_entity_decode(Tools::getValue('message'))
 		));
-
+		$this->context->smarty->assign('HOOK_FILTER', Hook::exec('filterInternal'));
 		$this->setTemplate(_PS_THEME_DIR_.'contact-form.tpl');
 	}
 
