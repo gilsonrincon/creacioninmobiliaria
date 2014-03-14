@@ -91,4 +91,3 @@
 
 {/literal}
 
-{$HOOK_FILTER}

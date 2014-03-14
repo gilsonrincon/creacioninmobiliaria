@@ -100,6 +100,6 @@
 			</script>
 			{/literal}
 			
-			<div class="fb-like-box" data-href="https://www.facebook.com/FacebookDevelopers" style="margin-top: 20px;" data-width="216"  data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="true"></div>
+			<div class="fb-like-box" data-href="https://www.facebook.com/pages/Creacion-Inmobiliaria/281604968665778?fref=ts" style="margin-top: 20px;" data-width="216"  data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="true"></div>
 	</div>
 </div>
