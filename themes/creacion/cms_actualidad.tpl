@@ -78,8 +78,7 @@
 	<!-- Esta es la columna derecha, en donde se ubican las redes sociales -->
 	<div class="col-derecha-actualidad">
 		<!--twitter-->
-		<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/teffavelez"  data-widget-id="443043993513771010">Tweets por @teffavelez</a>
-    	
+ 		<a class="twitter-timeline"  href="https://twitter.com/creinmobiliaria"  data-widget-id="446297765052571648">Tweets por @creinmobiliaria</a>
     	{literal}
     		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		{/literal}
