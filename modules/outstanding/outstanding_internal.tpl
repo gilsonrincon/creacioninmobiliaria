@@ -4,7 +4,7 @@ Por ahora falta colocar la imagen
 **}
 
 <div id="container-module-product">
-	<h2>proyectos destacados</h2>
+	<h2>Proyectos destacados</h2>
 	
 		{foreach from=$outstanding item=o}
 			<div class="products-content">

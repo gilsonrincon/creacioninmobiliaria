@@ -12,7 +12,7 @@ Este modulo muestra las propiedades con categoria de destacadas.
 		<textarea id="comentarios" name="comentarios" placeholder="COMENTARIOS:"></textarea>
 		<button id="send" return="false" data-type="zoomin"  value="Buscar">CONTACTAR</button>
 	</form>
-	<img class="logo-empresa" src="img/creacion/img-contact-product.png" />
+	<img class="logo-empresa" src="img/creacion/img-contact-product.jpg" />
 </div>
 <div class="overlay-container">
 	<div class="popup zoomin">
