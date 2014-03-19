@@ -453,7 +453,7 @@ class Filter extends Module {
 			$m = count($products) / 8;
 			if(is_float($m))
 				$m = $m + 1;
-			for($i=1; $i < $m  ; $i++):
+			for($i=1; $i <= $m  ; $i++):
 				array_push($pagination, array($i, "http://creacioninmobiliaria.com/index.php?controller=category?category=".Tools::getValue('category')."&page=".$i));
 				//echo "http://creacioninmobiliaria.com/index.php?controller=category?category=5&page=".$i;
 			endfor;
