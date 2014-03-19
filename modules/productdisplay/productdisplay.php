@@ -68,10 +68,10 @@ class ProductDisplay extends Module {
 				AND ps_feature_product.id_product = ".Tools::getValue('id_product');
 		$features = DB::getInstance()->ExecuteS($sql);
 		
-		/*Inicializamos un array para pasar los features a smarty de forma mas simple*/
+		/*Inicializamos un array para pasar los features a smarty de forma mas simple
 		$feature_for_smarty = array();
 		
-		/*Inicializamos los valores que contendra el array*/
+		Inicializamos los valores que contendra el array
 		$features_for_smarty['construccion'] = "";
 		$features_for_smarty['ciudad'] = "";
 		$features_for_smarty['barrio'] = "";
@@ -88,7 +88,7 @@ class ProductDisplay extends Module {
 		$features_for_smarty['parqueaderos'] = "";
 		$features_for_smarty['zona_verde'] = "";
 
-		/*Llenamos el array con los verdaderos valores disponibles*/
+		Llenamos el array con los verdaderos valores disponibles
 		foreach($features as $f){
 
 		    switch ($f['name']) {
@@ -156,9 +156,10 @@ class ProductDisplay extends Module {
 		    	break;
 		    }
 		}
+		*/
 
 		/*Pasamos el array de features a smarty*/
-		$smarty->assign('features', $features_for_smarty);
+		$smarty->assign('features', $features);
 
 		/*Consultamos si este producto es de categoria 5*/
 		$sql = "SELECT * FROM ps_category_product WHERE id_product = ".Tools::getValue('id_product')." 

@@ -18,7 +18,7 @@ lo que se haya hecho en el frontend.
 		<h3>REALIZA TU BUSQUEDA</h3>
 		<select name="type" id="propertyType">
 			
-			<option value="0">TIPO DE INMUEBLE:</option>
+			<option value="0">TIPO DE PROYECTO:</option>
 			{foreach from=$type item=c}
 				<option value={$c.id_category}>{$c.name}</option>
 			{/foreach}
