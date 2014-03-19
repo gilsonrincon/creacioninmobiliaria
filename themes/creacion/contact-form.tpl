@@ -74,7 +74,7 @@
 <script>
 	var mapa = new google.maps.LatLng(6.1963627, -75.5585778);	//Coordenadas
 	var opciones = {
-	    zoom : 13,
+	    zoom : 20,
 	    center: mapa,
 	    mapTypeId: google.maps.MapTypeId.SATELLITE
 	};
