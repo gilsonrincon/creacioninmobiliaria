@@ -76,7 +76,7 @@
 	var opciones = {
 	    zoom : 13,
 	    center: mapa,
-	    mapTypeId: google.maps.MapTypeId.ROADMAP
+	    mapTypeId: google.maps.MapTypeId.SATELLITE
 	};
 	var div = document.getElementById('mapa');
 	var map = new google.maps.Map(div, opciones);

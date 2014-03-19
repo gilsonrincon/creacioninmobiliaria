@@ -58,10 +58,10 @@ lo que se haya hecho en el frontend.
 			</select>
 	
 			<select class="new-select" name="status">
+				<option value="0">ESTADO:</option>
 				{foreach from=$status item=c}
 					<option value={$c.id_category}>{$c.name}</option>
 				{/foreach}
-				<option value="0">Nuevos y usados</option>
 			</select>
 	
 			<button class="search-filtre" type="submit"  value="Buscar">BUSCAR </button>
