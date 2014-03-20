@@ -19,12 +19,12 @@ $products_description[$p.id_product] = Descripcion del producto
 		    <a href="http://creacioninmobiliaria.com/index.php?id_product={$p.id_product}&controller=product&id_lang=1">
 				<img src="{$products_images[$p.id_product]}"><br>
 			</a>
-			<p style="font-weight:bold;">{$products_name[$p.id_product]|truncate:30:'...'}</p>
+			<p style="font-weight:bold; line-height: 20px; overflow: hidden; height: 20px;">{$products_name[$p.id_product]|truncate:30:'...'}</p>
 			<hr/>
 			<p><span>Código:</span> {$p.reference} </p>
 			{if $category_name != "Proyectos"}
 				<p><span>Precio:</span> <span style="color:#218dcb;"> {convertPrice price=$p.price}</span></p>
-				<p><span>Area:</span> {$products_areas[$p.id_product]}</p>
+				<p><span>Área:</span> {$products_areas[$p.id_product]}</p>
 			{/if}
 			<p><span>Sector:</span> {$products_sector[$p.id_product]}</p>
 			<div id="description">

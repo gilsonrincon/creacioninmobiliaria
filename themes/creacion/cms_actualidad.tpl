@@ -57,11 +57,15 @@
 									<div class="description">
 										{$cmspages.meta_description|escape:'htmlall':'UTF-8'}
 									</div>
+									<a style="color: #329CFF; text-align: right; display: block; font-size: 120%; margin: 5px;" href="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}">
+										ver más
+									</a>
 									<div class="compartir">
 										<span class='st_facebook_hcount' displayText='Facebook' st_url="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}"></span>
 										<span class='st_twitter_hcount' displayText='Tweet' st_url="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}"></span>
 										<span class='st_googleplus_hcount' displayText='Google +' st_url="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}"></span>		
 									</div>
+									
 								</div>
 							</li>
 						{/foreach}
