@@ -3,7 +3,7 @@ Este modulo muestra las propiedades con categoria de destacadas.
 **}
 
 <div id="container-module-product">
-	<h2>Propiedades de interés</h2>
+	<h2>Propiedades de lujo</h2>
 	
 		{foreach from=$luxury item=o}
 			<div class="products-content">
