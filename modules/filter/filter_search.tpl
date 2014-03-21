@@ -16,7 +16,7 @@ $products_description[$p.id_product] = Descripcion del producto
 	<ul>
 		{foreach from=$products item=p}
 		  <li>
-		    <a href="http://creacioninmobiliaria.com/index.php?id_product={$p.id_product}&controller=product&id_lang=1">
+		    <a class="content-image-category"  href="http://creacioninmobiliaria.com/index.php?id_product={$p.id_product}&controller=product&id_lang=1">
 				<img src="{$products_images[$p.id_product]}"><br>
 			</a>
 			<p style="font-weight:bold; line-height: 20px; overflow: hidden; height: 20px;">{$products_name[$p.id_product]|truncate:30:'...'}</p>
