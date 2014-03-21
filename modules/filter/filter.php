@@ -243,7 +243,7 @@ class Filter extends Module {
 				$sql = "SELECT * FROM ps_category_product 
 						WHERE ps_category_product.id_product = $value[id_product] 
 						AND ps_category_product.id_category = $f";
-				
+
 				/*Ejecutamos la consulta y la guardamos en una variable result*/
 				$result = DB::getInstance()->ExecuteS($sql);
 
@@ -260,8 +260,11 @@ class Filter extends Module {
 					unset($products[$key]);
 				endif;
 			else:
-				if($value['price'] < $dp_min || $value['price'] > $dp_max)
-					unset($products[$key]);
+				if($dp_min != 0):
+					if($value['price'] < $dp_min || $value['price'] > $dp_max):
+						unset($products[$key]);
+					endif;
+				endif;
 			endif;
 		}
 
@@ -321,7 +324,7 @@ class Filter extends Module {
 			$sql = "SELECT ps_category_lang.name FROM ps_category 
 					INNER JOIN ps_category_lang ON ps_category.id_category = ps_category_lang.id_category 
 					INNER JOIN ps_category_product ON ps_category.id_category = ps_category_product.id_category
-					WHERE ps_category_lang.id_lang = 1 AND ps_category.id_parent = 3 AND ps_category_product.id_product = 2";
+					WHERE ps_category_lang.id_lang = 1 AND ps_category.id_parent = 3 AND ps_category_product.id_product = ".$p['id_product'];
 			$result = DB::getInstance()->ExecuteS($sql);
 
 			foreach($result as $s):
@@ -336,7 +339,7 @@ class Filter extends Module {
 					INNER JOIN ps_feature_lang ON ps_feature.id_feature = ps_feature_lang.id_feature
 					WHERE ps_feature_lang.id_lang = 1 
 					AND ps_feature_value_lang.id_lang = 1 
-					AND ps_feature.id_feature = 7 
+					AND ps_feature.id_feature = 6 
 					AND ps_feature_product.id_product = ".$p['id_product'];
 			$result = DB::getInstance()->ExecuteS($sql);
 			
