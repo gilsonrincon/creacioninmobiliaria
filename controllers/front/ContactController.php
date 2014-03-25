@@ -60,7 +60,7 @@ class ContactControllerCore extends FrontController
 						'contact_modificado', 
 						'Contacto a través del sitio Web',
 						$var_list, 
-						/*Configuration::get('PS_SHOP_EMAIL')*/'gilson.rincon@gmail.com');
+						Configuration::get('PS_SHOP_EMAIL'));
 				}
 				
 				if (count($this->errors) > 1)
