@@ -1,7 +1,11 @@
-Hola,
+Mensaje de {shop_name}
 
-Su mensaje ha sido enviado correctamenta a nuestro centro de atención al Cliente. 
+Información de contacto
 
-Su mensaje:
+Un visitante al sitio Web ha enviado una solicitud de contacto:</p>
 
-{message}
+Nombre: {nombre}
+Telèfono: {telefono}
+E-mail: {mail}
+Motivo de contacto: {contactar}
+Mensaje: {message}
