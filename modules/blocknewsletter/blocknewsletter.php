@@ -299,6 +299,17 @@ class Blocknewsletter extends Module
 				'.(int)$active.'
 				)';
 
+		$cliente=new Customer();
+
+		$cliente->email=pSQL($email);
+		$cliente->newsletter=true;
+		$cliente->ip_registration_newsletter=Tools::getRemoteAddr();
+		$cliente->newsletter_date_add=date('Y-m-d');
+		$cliente->lastname='na';
+		$cliente->firstname='na';
+		$cliente->passwd='Creacion2014';
+		$cliente->save();
+
 		return Db::getInstance()->execute($sql);
 	}
 
