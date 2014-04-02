@@ -4,7 +4,7 @@
 
 
 <p id="img-banner">
-	<img class="img-banners" alt="banner contacto" src="img/creacion/contacto1.png" title="banner contacto">
+	<img class="img-banners" alt="banner empresa" src="img/creacion/contacto.jpg" title="banner contacto">
 </p>
 <div id="container-title-contact" style="width:80%; height:50px; margin: 0px auto; position: relative;">
 	<h1 class="title-cms">CONTACTO</h1>
@@ -15,25 +15,13 @@
 		 <h3>¿ NECESITA ASESORIA ?</h3>
 		 <p class="line"> </p>
 		 <p style="line-height:20px;">Contáctenos para ofrecerle mas información sobre <br/> nuestros servicios.</p>
-		 <p>
-	 		311 331 8139<br/>
-	 		Gerencia de Ventas
-		 </p>
-		 <p>
-	 		310 842 4966 <br/>
-	 		Gerencia Comercial
-		 </p>
-		 <p>
-	 		321 812 8485<br/>
-	 		Gerencia de Proyectos
-		 </p>
-		 <a href="mailto://info@creacioninmobiliaria.com">INFO@CREACIONINMOBILIARIA.COM</a>
+		 <p>311 331 8139 - 310 842 4966</p>
 		 <ul>
 		 	<li>Cra 25 N 1A Sur - 155</li>
 		 	<li>Edificio platinum superior - El poblado</li>
 		 	<li>Oficina 236</li>
 		 </ul>
-		 
+		 <a href="mailto://info@creacioninmobiliaria.com">INFO@CREACIONINMOBILIARIA.COM</a>
 	</div>	
 </div>
 
@@ -68,7 +56,7 @@
 					
 					<select name="contactar" id="contactar">
 						<option value="Esta interesado en publicar su propiedad">¿ESTÁ INTERESADO EN PUBLICAR SU PROPIEDAD? </option>
-						<option value="Desea obtener información adicional sobre nuestros servicios">¿DESEA OBTENER INFORMACIÓN ADICIONAL SOBRE NUESTROS SERVICIOS?</option>
+						<option value="Desea obtener información adicional sobre nuestros servicios">¿DESEA OBTEBER INFORMACION ADICIONAL SOBRE NUESTROS SERVICIOS?</option>
 					</select>
 
 					<textarea name="msg" id="msg" placeholder="MENSAJE:"></textarea>
@@ -80,8 +68,26 @@
 		</div>
 	{/if}
 
-<div id="mapa">
-	<img style="width:100%;" alt="banner contacto" src="img/creacion/mapa.jpg" title="banner contacto">
-</div>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<div id="mapa" style="width: 100%; height: 400px"></div>
+{literal}
+<script>
+	var mapa = new google.maps.LatLng(6.1963627, -75.5585778);	//Coordenadas
+	var opciones = {
+	    zoom : 17,
+	    center: mapa,
+	    mapTypeId: google.maps.MapTypeId.SATELLITE
+	};
+	var div = document.getElementById('mapa');
+	var map = new google.maps.Map(div, opciones);
 
+	// Creamos un marcador y lo posicionamos en el mapa
+	var marcador = new google.maps.Marker({
+	  position: new google.maps.LatLng(6.1963627, -75.5585778), //Coordenadas
+	  map: map,
+	  icon: "http://creacioninmobiliaria.com/img/maps.png"
+	});
+</script>
+
+{/literal}
 
