@@ -28,7 +28,7 @@
 			<div class="rte{if $content_only} content_only{/if}" id="content-article">
 				<a class="btn-regresar-act" href="http://creacioninmobiliaria.com/index.php?id_cms_category=2&controller=cms&id_lang=1">REGRESAR</a>
 				<div style="height: 5px; background:#5D5D5D;"></div>
-				<h2 style="color: #5d5d5d;">{$cms->meta_title}</h2>
+				<h2 class="title-article-int" style="color: #5d5d5d;">{$cms->meta_title}</h2>
 				<div class="img-articulo">
 					<img src="{$content_dir|addslashes}img/cms_cover/{$cms->id}.jpg" alt="">
 				</div>

@@ -21,5 +21,5 @@
 	{/foreach}
 
 	<div id="container-regresar" style="margin: 0px;">
-		<a href="http://creacioninmobiliaria.com/index.php?controller=category?category=4">REGRESAR</a>	
+		<a href="javascript:history.back()">REGRESAR</a>	
 	</div>
