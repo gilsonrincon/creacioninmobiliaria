@@ -4,24 +4,38 @@
 
 
 <p id="img-banner">
-	<img class="img-banners" alt="banner empresa" src="img/creacion/contacto.jpg" title="banner contacto">
+	<img class="img-banners" alt="banner empresa" src="img/creacion/contacto1.png" title="banner contacto">
 </p>
 <div id="container-title-contact" style="width:80%; height:50px; margin: 0px auto; position: relative;">
 	<h1 class="title-cms">CONTACTO</h1>
 </div>
 <div id="container-page-contact" class="mobile-not">
-	<h2 class="title-contact" style="margin-left: 5px;">CONTACTENOS<span style="padding-left: 0;">CREACIÓN INMOBILIARIA</span></h2>
+	<h2 class="title-contact" style="margin-left: 5px; padding-top:0;">CONTÁCTENOS<span style="padding-left: 0;">CREACIÓN INMOBILIARIA</span></h2>
 	<div class="content-info-contact" >
 		 <h3>¿ NECESITA ASESORIA ?</h3>
 		 <p class="line"> </p>
 		 <p style="line-height:20px;">Contáctenos para ofrecerle mas información sobre <br/> nuestros servicios.</p>
 		 <p>311 331 8139 - 310 842 4966</p>
+		 <p>
+		 	311 331 8139<br/>
+			Gerencia de Ventas
+		 </p>
+		 <p>
+		 	310 842 4966<br/>
+			Gerencia Comercial
+		 </p>
+		 <p>
+		 	321 812 8485<br/>
+			Gerencia de Proyectos
+		 </p>
+
+		 <a href="mailto://info@creacioninmobiliaria.com">INFO@CREACIONINMOBILIARIA.COM</a>
 		 <ul>
 		 	<li>Cra 25 N 1A Sur - 155</li>
 		 	<li>Edificio platinum superior - El poblado</li>
 		 	<li>Oficina 236</li>
 		 </ul>
-		 <a href="mailto://info@creacioninmobiliaria.com">INFO@CREACIONINMOBILIARIA.COM</a>
+		 
 	</div>	
 </div>
 
@@ -68,26 +82,9 @@
 		</div>
 	{/if}
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<div id="mapa" style="width: 100%; height: 400px"></div>
-{literal}
-<script>
-	var mapa = new google.maps.LatLng(6.1963627, -75.5585778);	//Coordenadas
-	var opciones = {
-	    zoom : 17,
-	    center: mapa,
-	    mapTypeId: google.maps.MapTypeId.SATELLITE
-	};
-	var div = document.getElementById('mapa');
-	var map = new google.maps.Map(div, opciones);
 
-	// Creamos un marcador y lo posicionamos en el mapa
-	var marcador = new google.maps.Marker({
-	  position: new google.maps.LatLng(6.1963627, -75.5585778), //Coordenadas
-	  map: map,
-	  icon: "http://creacioninmobiliaria.com/img/maps.png"
-	});
-</script>
+<div id="mapa" style="width: 100%;">
+	<img style="width:100%;" alt="Mapa empresa" src="img/creacion/mapa.jpg" title="mapa creacioninmobiliaria">
+</div>
 
-{/literal}
 

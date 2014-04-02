@@ -21,5 +21,5 @@
 </ul>
 
 <div id="container-regresar">
-	<a href="http://creacioninmobiliaria.com/index.php?controller=category?category=5">REGRESAR</a>	
+	<a href="javascript:history.back()">REGRESAR</a>	
 </div>
