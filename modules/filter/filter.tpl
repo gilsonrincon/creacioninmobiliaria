@@ -40,12 +40,8 @@ lo que se haya hecho en el frontend.
 			<option value="2">$400.000.000 - $600.000.000</option>
 			<option value="3">$600.000.000 - $800.000.000</option>
 			<option value="4">$800.000.000 - $1000.000.000</option>
-			<option value="5">$1.000.000.000 - $1.200.000.000</option>
-			<option value="6">$1.200.000.000 - $1.400.000.000</option>
-			<option value="7">$1.400.000.000 - $1.600.000.000</option>
-			<option value="8">$1.600.000.000 - $1.800.000.000</option>
-			<option value="9">$1.800.000.000 - $2.000.000.000</option>
-			<option value="10">Más de $2.000.000.000</option>
+			<option value="5">$1.000.000.000 - $3.000.000.000</option>
+			<option value="6">Más de $3.000.000.000</option>
 		</select>
 		
 		<select class="price-select" name="area">

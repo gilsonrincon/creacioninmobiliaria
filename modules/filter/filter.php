@@ -206,23 +206,7 @@ class Filter extends Module {
 					break;
 				case '5':
 					$dp_min = 1000000000;
-					$dp_max = 1200000000; 
-					break;
-				case '6':
-					$dp_min = 1200000000;
-					$dp_max = 1400000000; 
-					break;
-				case '7':
-					$dp_min = 1400000000;
-					$dp_max = 1600000000; 
-					break;
-				case '8':
-					$dp_min = 1600000000;
-					$dp_max = 1800000000; 
-					break;
-				case '9':
-					$dp_min = 1800000000;
-					$dp_max = 2000000000; 
+					$dp_max = 3000000000; 
 					break;
 			}
 		endif;
@@ -256,7 +240,7 @@ class Filter extends Module {
 
 		foreach ($products as $key => $value) {
 			if(Tools::getValue('price_range') == "10"):
-				if($value['price'] < 2000000000):
+				if($value['price'] < 3000000000):
 					unset($products[$key]);
 				endif;
 			else:
