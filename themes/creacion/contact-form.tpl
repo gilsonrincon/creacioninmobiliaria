@@ -15,7 +15,6 @@
 		 <h3>¿ NECESITA ASESORIA ?</h3>
 		 <p class="line"> </p>
 		 <p style="line-height:20px;">Contáctenos para ofrecerle mas información sobre <br/> nuestros servicios.</p>
-		 <p>311 331 8139 - 310 842 4966</p>
 		 <p>
 		 	311 331 8139<br/>
 			Gerencia de Ventas
@@ -29,11 +28,12 @@
 			Gerencia de Proyectos
 		 </p>
 
-		 <a href="mailto://info@creacioninmobiliaria.com">INFO@CREACIONINMOBILIARIA.COM</a>
+		 <a style="display:block;" href="mailto://info@creacioninmobiliaria.com">INFO@CREACIONINMOBILIARIA.COM</a><br/>
 		 <ul>
 		 	<li>Cra 25 N 1A Sur - 155</li>
-		 	<li>Edificio platinum superior - El poblado</li>
+		 	<li>Poblado - Edificio Platinum Superior </li>
 		 	<li>Oficina 236</li>
+		 	<li>MEDELLIN - COLOMBIA</li>
 		 </ul>
 		 
 	</div>	
