@@ -132,8 +132,10 @@ class Filter extends Module {
 			else:
 				$is_project = false;
 			endif;
-		else:
+		elseif(Tools::getValue('price_range')):
 			$is_project = false;
+		else:
+			$is_project = true;
 		endif;
 
 		$smarty->assign('type', $type);
@@ -151,8 +153,11 @@ class Filter extends Module {
 			$result = DB::getInstance()->ExecuteS($sql);
 
 			$category = 5;
-			if(count($result))
+			if(count($result)):
 				$category = 4;
+			endif;
+		elseif(Tools::getValue('maincategory')):
+			$category = Tools::getValue('maincategory');
 		endif;
 
 		$smarty->assign('category', $category);
