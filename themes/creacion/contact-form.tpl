@@ -17,15 +17,16 @@
 		 <p style="line-height:20px;">Contáctenos para ofrecerle mas información sobre <br/> nuestros servicios.</p>
 		 <p>
 		 	311 331 8139<br/>
-			Gerencia de Ventas
+		<span style="color:#1464A8;">GERENCIA DE VENTAS</span>	
 		 </p>
 		 <p>
 		 	310 842 4966<br/>
-			Gerencia Comercial
+		 	<span style="color:#1464A8;">GERENCIA COMERCIAL</span>
 		 </p>
 		 <p>
 		 	321 812 8485<br/>
-			Gerencia de Proyectos
+		 	<span style="color:#1464A8;">GERENCIA DE PROYECTOS</span>
+		 	
 		 </p>
 
 		 <a style="display:block;" href="mailto://info@creacioninmobiliaria.com">INFO@CREACIONINMOBILIARIA.COM</a><br/>
@@ -70,7 +71,7 @@
 					
 					<select name="contactar" id="contactar">
 						<option value="Esta interesado en publicar su propiedad">¿ESTÁ INTERESADO EN PUBLICAR SU PROPIEDAD? </option>
-						<option value="Desea obtener información adicional sobre nuestros servicios">¿DESEA OBTEBER INFORMACION ADICIONAL SOBRE NUESTROS SERVICIOS?</option>
+						<option value="Desea obtener información adicional sobre nuestros servicios">¿DESEA OBTENER INFORMACIÓN ADICIONAL SOBRE NUESTROS SERVICIOS?</option>
 					</select>
 
 					<textarea name="msg" id="msg" placeholder="MENSAJE:"></textarea>

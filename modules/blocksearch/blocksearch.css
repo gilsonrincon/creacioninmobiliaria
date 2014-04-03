@@ -13,8 +13,8 @@
 #search_block_top p {padding:0;}
 #search_block_top #search_query_top {
     background: rgba(0,0,0,0.8);
-    border: 1px solid #5D5D5D;
-    color: #666666;
+    border: 1px solid #fff;
+    color: #fff;
     float: left;
     height: 23px;
     padding: 0 5px;
