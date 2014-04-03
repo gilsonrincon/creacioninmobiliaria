@@ -239,7 +239,7 @@ class Filter extends Module {
 		endforeach;
 
 		foreach ($products as $key => $value) {
-			if(Tools::getValue('price_range') == "10"):
+			if(Tools::getValue('price_range') == "6"):
 				if($value['price'] < 3000000000):
 					unset($products[$key]);
 				endif;
