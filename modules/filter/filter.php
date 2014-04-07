@@ -423,7 +423,7 @@ class Filter extends Module {
 					INNER JOIN ps_feature_lang ON ps_feature.id_feature = ps_feature_lang.id_feature
 					WHERE ps_feature_lang.id_lang = 1 
 					AND ps_feature_value_lang.id_lang = 1 
-					AND ps_feature.id_feature = 7 
+					AND ps_feature.id_feature = 6 
 					AND ps_feature_product.id_product = ".$p['id_product'];
 			$result = DB::getInstance()->ExecuteS($sql);
 			$products_areas[$p['id_product']] = "";
