@@ -185,6 +185,9 @@ class Filter extends Module {
 		if(Tools::getValue('new') > 0)
 			array_push($filters, Tools::getValue('new'));
 
+		if(Tools::getValue('status') > 0)
+			array_push($filters, Tools::getValue('status'));
+
 		if(Tools::getValue('maincategory') > 0)
 			array_push($filters, Tools::getValue('maincategory'));
 
