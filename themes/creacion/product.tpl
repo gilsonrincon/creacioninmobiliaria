@@ -190,8 +190,15 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				<div id="image-block">
 				{if $have_image}
 					<span id="view_full_size">
+					{if isset($images)}
+						{foreach from=$images item=image name=thumbnails}
+							{assign var=imageIds value="`$product->id`-`$image.id_image`"}
+						<a href="{$link->getImageLink($product->link_rewrite, $imageIds)|escape:'html'}" rel="other-views" class="group2">
 						<img src="{$link->getImageLink($product->link_rewrite, $cover.id_image, '')|escape:'html'}"{if $jqZoomEnabled && $have_image} class="jqzoom"{/if} title="{if !empty($cover.legend)}{$cover.legend|escape:'htmlall':'UTF-8'}{else}{$product->name|escape:'htmlall':'UTF-8'}{/if}" alt="{if !empty($cover.legend)}{$cover.legend|escape:'htmlall':'UTF-8'}{else}{$product->name|escape:'htmlall':'UTF-8'}{/if}" id="bigpic" width="{$largeSize.width}" height="{$largeSize.height}"/>
+						</a>
 						<span class="span_link">{l s='Maximize'}</span>
+						{/foreach}
+					{/if}
 					</span>
 				{else}
 					<span id="view_full_size">
@@ -214,8 +221,9 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 							{else}
 								{assign var=imageTitlte value=$product->name|escape:'htmlall':'UTF-8'}
 							{/if}
+								
 							<li id="thumbnail_{$image.id_image}">
-								<a href="{$link->getImageLink($product->link_rewrite, $imageIds)|escape:'html'}" rel="other-views" class="thickbox{if $smarty.foreach.thumbnails.first} shown{/if}" title="{$imageTitlte}">
+								<a href="{$link->getImageLink($product->link_rewrite, $imageIds)|escape:'html'}" rel="other-views" class="group1" title="{$imageTitlte}">
 									<img id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, '')|escape:'html'}" alt="{$imageTitlte}" title="{$imageTitlte}" height="{$mediumSize.height}" width="{$mediumSize.width}" />
 								</a>
 							</li>
@@ -676,3 +684,17 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 {/if}
 {/if}
 -->
+
+<style>
+	#cboxCurrent {
+		display: none !important;
+	}
+
+	.group2 {
+		display: none;
+	}
+</style>
+
+<script>
+	$(".group2").first().css('display', 'block')
+</script>

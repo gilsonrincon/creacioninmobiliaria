@@ -60,6 +60,7 @@
 	<link href="{$css_uri}" rel="stylesheet" type="text/css" media="{$media}" />
 	{/foreach}
 {/if}
+
 {if isset($js_files)}
 	{foreach from=$js_files item=js_uri}
 	<script type="text/javascript" src="{$js_uri}"></script>
@@ -103,6 +104,19 @@
 		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 		<script type="text/javascript">stLight.options({publisher: "1f12f6ec-c094-4a61-83b2-dba463eb66cc", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 		{/literal}
+		<!--colorbox-->
+		<link rel="stylesheet" href="/themes/creacion/css/colorbox.css" />
+		<script src="/themes/creacion/js/jquery.colorbox.js"></script>
+		{literal}
+		<script>
+			$(document).ready(function(){
+				$(".group1").colorbox({transition:"fade", width:"80%"});
+				$(".group2").colorbox({transition:"fade", width:"80%"});
+			})
+						
+		</script>
+		{/literal}
+		<!--Fin de color box-->
 	</head>
 	
 	<body {if isset($page_name)}id="{$page_name|escape:'htmlall':'UTF-8'}"{/if} class="{if isset($page_name)}{$page_name|escape:'htmlall':'UTF-8'}{/if}{if $hide_left_column} hide-left-column{/if}{if $hide_right_column} hide-right-column{/if}{if $content_only} content_only{/if}">
