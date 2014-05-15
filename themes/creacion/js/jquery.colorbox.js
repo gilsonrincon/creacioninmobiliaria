@@ -17,8 +17,8 @@
 
 		// behavior and appearance
 		transition: "elastic",
-		speed: 800,
-		fadeOut: 800,
+		speed: 600,
+		fadeOut: 600,
 		width: false,
 		initialWidth: "600",
 		innerWidth: false,
